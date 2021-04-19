@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { OrderService } from 'src/app/services/order.service';
 import { Order } from 'src/app/interfaces/order';
+import { Product } from 'src/app/interfaces/product';
 
 @Component({
   selector: 'app-order',
@@ -9,7 +10,7 @@ import { Order } from 'src/app/interfaces/order';
 })
 export class OrderComponent implements OnInit {
 
-  products = [];
+  products: Product[] = [];
   orderDetail = [];
   phonenumber: string = "0";
   subtotal: number = 0;
@@ -23,7 +24,7 @@ export class OrderComponent implements OnInit {
   constructor(private orderService: OrderService) { }
 
   ngOnInit(): void {
-    this.orderService.sendGetRequest().subscribe((data: any[]) => {
+    this.orderService.sendGetRequest().subscribe((data: Product[]) => {
       this.products = data;
     });
   }
