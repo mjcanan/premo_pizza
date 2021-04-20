@@ -12,14 +12,14 @@ import { Product } from 'src/app/interfaces/product';
 /* *****************************************************************************
   THIS COMPONENT IS FOR PLACING OF ORDERS (CREATE)
     ORDER-LIST WILL HAVE A LIST OF ALL ORDERS (READ) -- WILL NEED SEARCH
-    ORDER-DETAILS WILL BE A GET BY ID (PHONENUMBER?) (UPDATE -- NO DELETE?)
+    ORDER-DETAILS WILL BE A GET BY ID (UPDATE -- NO DELETE?)
 ******************************************************************************* */
 export class OrderComponent implements OnInit {
 
   products: Product[] = [];
 
   //for checking if an order has been submitted
-  submitted: boolean = false;
+  submitted = false;
   order : Order = {
     phonenumber: null,
     productIds: [],
@@ -86,10 +86,11 @@ export class OrderComponent implements OnInit {
       console.log(error);
     });
 
+    this.submitted = true;
   }
 
   newOrder() {
-    //clearing after submission NOT WORKING CURRENTLY
+
     this.order = {
       phonenumber: null,
       productIds: [],
