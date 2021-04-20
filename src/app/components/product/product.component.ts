@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
 import { Product } from 'src/app/interfaces/product';
 import { ProductService } from 'src/app/services/product.service';
 
@@ -9,12 +10,17 @@ import { ProductService } from 'src/app/services/product.service';
 })
 export class ProductComponent implements OnInit {
   products : Product[] = [];
+  private subscription;
   constructor(private productService: ProductService) { }
 
   ngOnInit(): void {
-    this.productService.sendGetRequest().subscribe((data:Product[]) => {
+    this.subscription = this.productService.sendGetRequest().subscribe((data:Product[]) => {
       this.products = data;
     });
+  }
+
+  ngOnDestroy(): void {
+    this.subscription.unsubscribe();
   }
 
 }
