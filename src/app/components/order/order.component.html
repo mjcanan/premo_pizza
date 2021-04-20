@@ -1,11 +1,25 @@
 <p>In the order component</p>
 <div class="submit-form">
-    <div *ngIf="!submitted"></div>
+    <div *ngIf="!submitted">
+
+        <label for="phonenumber">Phonenumber</label><br>
+        <input type="text" id="phonenumber" required [(ngModel)]="order.phonenumber"/><br>    
+        <label for="discount">Discount</label><br>    
+        <input type="text" id="discount" [(ngModel)]="order.discount"/><br>    
+        <label for="employeeId">Employee ID</label><br>    
+        <input type="text" id="employeeId" [(ngModel)]="order.employeeId"/><br>    
+        <label for="priceCharged">Total</label><br>    
+        <input type="text" id="priceCharged" [(ngModel)]="order.priceCharged"/><br>    
+        <label>Zipcode</label><br>    
+        <input type="text" id="zipcode" [(ngModel)]="order.zipcode"/><br>
+        
+        <input type="hidden" [(ngModel)]="order.productIds" value="1">
+        <input type="hidden" [(ngModel)]="order.quantity" value="1">
     
-    <form>
-        
-        
-        
-        <button type="button" (click)="sendOrder()">Click to Post</button>
-    </form>
+        <br><button type="button" (click)="sendOrder()">Click to Post</button>
+    </div>
+    <div *ngIf="submitted">
+        <h3>Order submitted!</h3>
+        <button type="button" (click) = "newOrder()">New Order</button>
+    </div>   
 </div>

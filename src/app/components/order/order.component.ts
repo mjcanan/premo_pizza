@@ -17,28 +17,18 @@ import { Product } from 'src/app/interfaces/product';
 export class OrderComponent implements OnInit {
 
   products: Product[] = [];
-  // order : Order = {
-  //   orderId : 0,
-  //   phonenumber: '',
-  //   productIds : [],
-  //   dateTime : new Date(),
-  //   discount: 0,
-  //   employeeId : 0,
-  //   quantity: 0,
-  //   priceCharged: 0,
-  //   zipcode: 0,
-  // };
+
   //for checking if an order has been submitted
   submitted: boolean = false;
   order : Order = {
-    phonenumber: "888-888-8888",
-    productIds: [1,1],
+    phonenumber: "",
+    productIds: [],
     dateTime: new Date(),
-    discount: 1.00,
-    employeeId: 1,
-    quantity: 2,
-    priceCharged: 14.50,
-    zipcode: 55501
+    discount: null,
+    employeeId: null,
+    quantity: null,
+    priceCharged: null,
+    zipcode: null
   }
   
   // subtotal: number = 0;
@@ -87,5 +77,22 @@ export class OrderComponent implements OnInit {
     error=> {
       console.log(error);
     });
+
   }
+
+  newOrder() {
+    //clearing after submission
+    this.order = {
+      phonenumber: "",
+      productIds: [],
+      dateTime: new Date(),
+      discount: null,
+      employeeId: null,
+      quantity: null,
+      priceCharged: null,
+      zipcode: null
+    }
+    this.submitted = false;
+  }
+
 }
