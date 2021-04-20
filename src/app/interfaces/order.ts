@@ -1,6 +1,6 @@
 export interface Order {
     orderId?: number
-    phonenumber : string
+    phonenumber : number
     productIds : number[]
     dateTime : Date
     discount: number

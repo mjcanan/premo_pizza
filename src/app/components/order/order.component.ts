@@ -21,7 +21,7 @@ export class OrderComponent implements OnInit {
   //for checking if an order has been submitted
   submitted: boolean = false;
   order : Order = {
-    phonenumber: "",
+    phonenumber: null,
     productIds: [],
     dateTime: new Date(),
     discount: null,
@@ -88,7 +88,7 @@ export class OrderComponent implements OnInit {
   newOrder() {
     //clearing after submission
     this.order = {
-      phonenumber: "",
+      phonenumber: null,
       productIds: [],
       dateTime: new Date(),
       discount: null,
