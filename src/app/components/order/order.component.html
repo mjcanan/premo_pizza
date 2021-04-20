@@ -26,7 +26,7 @@
         <label for="employeeId">Employee ID</label><br>    
         <input type="text" id="employeeId" [(ngModel)]="order.employeeId"/><br>    
         <label for="priceCharged">Total</label><br>    
-        <input type="text" id="priceCharged" [(ngModel)]="order.priceCharged"/><br>    
+        <input type="text" id="priceCharged" [ngModel]="order.priceCharged | currency" (ngModelChange)="order.priceCharged=$event"/><br>    
         <label>Zipcode</label><br>
         <!--TODO: make this a select drop down box-->    
         <input type="text" id="zipcode" [(ngModel)]="order.zipcode"/><br>
