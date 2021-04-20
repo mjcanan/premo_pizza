@@ -10,9 +10,10 @@
     <tr *ngFor="let order of orders">
         <td>{{order.orderId}}</td>
         <td>{{order.phonenumber}}</td>
+        <!-- TODO: Format dateTime with pipe (custom?)-->
         <td>{{order.dateTime}}</td>
         <td>
-            <button type="button">Edit</button>
+            <button type="button"><a routerLink="/order-details/{{order.orderId}}">Edit</a></button>
         </td>
     </tr>
 

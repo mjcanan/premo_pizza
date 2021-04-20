@@ -14,8 +14,8 @@
         <!--TODO: make this a select drop down box-->    
         <input type="text" id="zipcode" [(ngModel)]="order.zipcode"/><br>
         
-        <input type="hidden" [(ngModel)]="order.productIds" value="1">
-        <input type="hidden" [(ngModel)]="order.quantity" value="1">
+        <input type="hidden" [(ngModel)]="order.productIds">
+        <input type="hidden" [(ngModel)]="order.quantity">
     
         <br><button type="button" (click)="sendOrder()">Click to Post</button>
     </div>

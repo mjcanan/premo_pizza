@@ -19,4 +19,12 @@ export class OrderService {
   public getOrders() {
     return this.httpClient.get("http://localhost:8080/order-list");
   }
+
+  public getOrderById(id) {
+    return this.httpClient.get(`http://localhost:8080/order-details/${id}`)
+  }
+
+  public updateOrder(id, data) {
+    return this.httpClient.put(`http://localhost:8080/order-details/${id}`, data);
+  }
 }

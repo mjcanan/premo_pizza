@@ -1,5 +1,5 @@
 export interface Order {
-    //orderId : number
+    orderId?: number
     phonenumber : string
     productIds : number[]
     dateTime : Date
