@@ -1,0 +1,12 @@
+<p>employee-list works!</p>
+<table>
+    <tr *ngFor="let employee  of employees">
+        <td>{{employee.employeeid}}</td>
+        <td>{{employee.employee_name}}</td>
+        <td>{{employee.address}}</td>
+        <td>{{employee.hourly_rate | currency}}</td>
+        <td>{{employee.hours_worked}}</td>
+        <td>{{employee.status}}</td>
+    </tr>
+</table>
+
