@@ -13,6 +13,7 @@ export class OrderDetailsComponent implements OnInit {
   
   order : Order;
   subscription;
+  updated = false;
   
   constructor(  private orderService: OrderService,
     private route: ActivatedRoute,
@@ -31,7 +32,9 @@ export class OrderDetailsComponent implements OnInit {
   update() {
     this.orderService.updateOrder(this.order.orderId, this.order).subscribe((data:any) => {
       console.log(data);
-    })
+    });
+
+    this.updated = true;
   }
 
   ngOnDestroy() : void {
