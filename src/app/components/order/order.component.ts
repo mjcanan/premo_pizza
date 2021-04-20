@@ -54,6 +54,12 @@ export class OrderComponent implements OnInit {
     console.log("Product ID: " + product.productId);
   }
 
+  //removes items from order and adjusts priceCharged
+  removeItem(index) {
+    let id = this.order.productIds.splice(index, 1);
+    this.order.priceCharged -= this.products[id[0]-1].price;
+  }
+
   //function to handle changes to discount 
   subtractDiscount(){
       let sum = 0;
