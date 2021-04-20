@@ -17,6 +17,6 @@ export class OrderService {
   }
 
   public getOrders() {
-    return this.httpClient.get("http://localhost:8080/order/order-list");
+    return this.httpClient.get("http://localhost:8080/order-list");
   }
 }

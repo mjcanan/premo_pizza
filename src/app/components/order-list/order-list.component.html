@@ -1,1 +1,19 @@
 <p>order-list works!</p>
+
+<table>
+    <tr>
+        <th>Order ID</th>
+        <th>Phone Number</th>
+        <th>Order Date</th>
+        <th></th>
+    </tr>
+    <tr *ngFor="let order of orders">
+        <td>{{order.orderId}}</td>
+        <td>{{order.phonenumber}}</td>
+        <td>{{order.dateTime}}</td>
+        <td>
+            <button type="button">Edit</button>
+        </td>
+    </tr>
+
+</table>
