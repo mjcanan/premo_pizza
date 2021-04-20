@@ -27,7 +27,7 @@
         <input type="text" id="employeeId" [(ngModel)]="order.employeeId"/><br>    
         <label for="priceCharged">Total</label><br>
         <!-- No banana in a box -- needed to get pipe to work -->    
-        <input type="text" id="priceCharged" [ngModel]="order.priceCharged | currency" (ngModelChange)="order.priceCharged=$event"/><br>    
+        <input type="text" id="priceCharged" [ngModel]="order.priceCharged | currency" (ngModelChange)="order.priceCharged=$event" readonly/><br>    
         <label>Zipcode</label><br>
         <!--TODO: make this a select drop down box-->    
         <input type="text" id="zipcode" [(ngModel)]="order.zipcode"/><br>
