@@ -53,6 +53,15 @@ export class OrderComponent implements OnInit {
     this.order.priceCharged += product.price;
     console.log("Product ID: " + product.productId);
   }
+
+  //function to handle changes to discount 
+  subtractDiscount(){
+      let sum = 0;
+      for(let i = 0; i < this.order.productIds.length; i++){
+        sum += this.products[this.order.productIds[i]-1].price;
+      };
+      this.order.priceCharged = sum - this.order.discount;
+  }
   
   sendOrder() {
 
