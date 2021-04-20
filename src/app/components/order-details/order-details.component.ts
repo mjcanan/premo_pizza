@@ -22,14 +22,16 @@ export class OrderDetailsComponent implements OnInit {
     private route: ActivatedRoute,
     private router: Router) { }
     
+//COMMENTED MOST OF THIS OUT -- I DON'T THINK I NEED IT ANYMORE, BUT KEEPING IT UNTIL I INTEGRATE THE OTHER COMPONENTS
+
     ngOnInit(): void {
-    this.getOrderDetails(this.route.snapshot.paramMap.get('id'));
-    //copied from order component
-    this.subscriptionProducts = this.orderService.getProducts().subscribe((data: Product[]) => {
-      this.products = data;
-    });
+    // this.getOrderDetails(this.route.snapshot.paramMap.get('id'));
+    // //copied from order component
+    // this.subscriptionProducts = this.orderService.getProducts().subscribe((data: Product[]) => {
+    //   this.products = data;
+    //});
   }
-    
+/*    
   getOrderDetails(orderId){
     this.subscription = this.orderService.getOrderById(orderId).subscribe((data:any) => {
       this.order = data 
@@ -44,12 +46,12 @@ export class OrderDetailsComponent implements OnInit {
     this.updated = true;
   }
 
-/* *****************************************************
+* *****************************************************
 *
 * COPY AND PASTED FROM ORDER COMPONENT -- BETTER SOLUTION IS TO REDIRECT TO ORDER COMPONENT, BUT WITH ORDERS PREPOPULATED
 * JUST NOT SURE HOW TO DO THAT AND NEED TO GET SOMETHING WORKING
 *
-******************************************************* */
+******************************************************* *
 
   //function to handle changes to discount 
   subtractDiscount(){
@@ -78,4 +80,5 @@ export class OrderDetailsComponent implements OnInit {
     this.subscriptionProducts.unsubscribe();
   }
 
+  */
 }

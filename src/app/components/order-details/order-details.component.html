@@ -1,4 +1,10 @@
+<app-order></app-order>
+
 <!-- <p>In order details of order id# {{order.orderId}}</p>
+
+    THIS IS THE ORIGINAL VERSION WITHOUT THE BUTTONS AND CODE FROM ORDER COMPONENT
+
+
     <div *ngIf="!updated">
         <label for="phonenumber">Phonenumber</label><br>
         <input type="text" id="phonenumber" required [(ngModel)]="order.phonenumber"/><br>    
@@ -24,7 +30,11 @@
         <button type="button"><a routerLink="">Home</a></button>
     </div>     -->
         
-    <br>
+    <!-- <br>
+
+        THIS IS THE SECOND ATTEMPT, WITH BUTTONS AND CODE FROM ORDER COMPONENT
+
+
     <div class="itemized-order" style="float:right;width:50%;">
         <table *ngFor="let id of order.productIds; let i = index;" style="text-align:left;border:1px solid black;border-collapse:collapse;">
             <tr style="border:1px solid black;">
@@ -51,10 +61,10 @@
             <label for="employeeId">Employee ID</label><br>    
             <input type="text" id="employeeId" [(ngModel)]="order.employeeId"/><br>    
             <label for="priceCharged">Total</label><br>
-            <!-- No banana in a box -- needed to get pipe to work -->    
+            <!- No banana in a box -- needed to get pipe to work->    
             <input type="text" id="priceCharged" [ngModel]="order.priceCharged | currency" (ngModelChange)="order.priceCharged=$event" readonly/><br>    
             <label>Zipcode</label><br>
-            <!--TODO: make this a select drop down box-->    
+            <!-TODO: make this a select drop down box->    
             <input type="text" id="zipcode" [(ngModel)]="order.zipcode"/><br>
             
             <input type="hidden" [(ngModel)]="order.productIds">
@@ -63,7 +73,7 @@
             <br> <button type="button" (click)="update()">Update Order</button>
             <button type="button"><a routerLink="../../order-list">Cancel</a></button>
             
-            <!--Procedurally Generate Buttons from Products Table-->
+            <!-Procedurally Generate Buttons from Products Table->
             <div>
                 <div *ngFor="let product of products">
                     <button type="submit" (click)="addToOrder(product)">{{product.description}}</button>
@@ -75,4 +85,4 @@
             <button type="button"><a routerLink="../../order-list">Return to Orders</a></button>
             <button type="button"><a routerLink="">Home</a></button>
         </div>
-    </div>
+    </div> -->

@@ -17,7 +17,7 @@
 </div>
 <div class="submit-form" style="float:left;width:50%;">
 
-    <div *ngIf="!submitted">
+    <div *ngIf="!submitted && !updated">
 
         <br><label for="phonenumber">Phonenumber</label><br>
         <input type="text" id="phonenumber" required [(ngModel)]="order.phonenumber"/><br>    
@@ -35,8 +35,15 @@
         <input type="hidden" [(ngModel)]="order.productIds">
         <input type="hidden" [(ngModel)]="order.quantity">
     
-        <br><button type="button" (click)="sendOrder()">Submit Order</button>
-        
+        <!-- Which button depends on routing -->
+        <div *ngIf="!details" >
+            <br><button type="button" (click)="sendOrder()">Submit Order</button>
+        </div>
+        <!-- If you are coming from order-details, these buttons-->
+        <div *ngIf="details">
+            <button type="button" (click)="update()">Update Order</button>
+            <button type="button"><a routerLink="../order-list">Cancel</a></button>
+        </div>
         <!--Procedurally Generate Buttons from Products Table-->
         <div>
             <div *ngFor="let product of products">
@@ -44,8 +51,15 @@
             </div>
         </div>   
     </div>
+    <!-- Which buttons display depending on routing -->
     <div *ngIf="submitted">
         <h3>Order submitted!</h3>
         <button type="button" (click) = "newOrder()">New Order</button>
+        <button type="button"><a routerLink="">Home</a></button>
+    </div>
+    <div *ngIf="updated">
+        <h3>Order Updated!</h3>
+        <button type="button"><a routerLink="../order-list">Return to Orders</a></button>
+        <button type="button"><a routerLink="">Home</a></button>
     </div>
 </div>

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { OrderService } from 'src/app/services/order.service';
 import { Order } from 'src/app/interfaces/order';
 import { Product } from 'src/app/interfaces/product';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-order',
@@ -20,6 +21,8 @@ export class OrderComponent implements OnInit {
   subscription;
   //for checking if an order has been submitted
   submitted = false;
+  details = false;
+  updated = false;
   order : Order = {
     phonenumber: null,
     productIds: [],
@@ -39,12 +42,22 @@ export class OrderComponent implements OnInit {
   // postOrder = {};
   // employeeid: number = 0;
   
-  constructor(private orderService: OrderService) { }
-  
+  constructor(private orderService: OrderService,
+              private route: ActivatedRoute,
+              private router: Router) { }
+            
   ngOnInit(): void {
+    
+    if (this.router.url.includes('order-details')){
+      this.subscription = this.orderService.getOrderById(this.route.snapshot.paramMap.get('id')).subscribe((data:any) => {
+        this.order = data 
+      });
+      this.details = true;
+    }
     this.subscription = this.orderService.getProducts().subscribe((data: Product[]) => {
       this.products = data;
     });
+  
   }
 
   addToOrder(product){
@@ -67,6 +80,14 @@ export class OrderComponent implements OnInit {
         sum += this.products[this.order.productIds[i]-1].price;
       };
       this.order.priceCharged = sum - this.order.discount;
+  }
+
+  update() {
+    this.orderService.updateOrder(this.order.orderId, this.order).subscribe((data:any) => {
+      console.log(data);
+    });
+
+    this.updated = true;
   }
   
   sendOrder() {
