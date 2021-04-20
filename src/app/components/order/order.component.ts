@@ -49,6 +49,8 @@ export class OrderComponent implements OnInit {
 
   addToOrder(product){
     this.order.productIds.push(product.productId);
+    this.order.quantity += 1;
+    this.order.priceCharged += product.price;
     console.log("Product ID: " + product.productId);
   }
   

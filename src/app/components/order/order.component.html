@@ -18,15 +18,16 @@
         <input type="hidden" [(ngModel)]="order.quantity">
     
         <br><button type="button" (click)="sendOrder()">Click to Post</button>
+        
+        <!--Procedurally Generate Buttons from Products Table-->
+        <div>
+            <div *ngFor="let product of products">
+                <button type="submit" (click)="addToOrder(product)">{{product.description}}</button>
+            </div>
+        </div>   
     </div>
     <div *ngIf="submitted">
         <h3>Order submitted!</h3>
         <button type="button" (click) = "newOrder()">New Order</button>
     </div>
-    <!--Procedurally Generate Buttons from Products Table-->
-    <div>
-        <div *ngFor="let product of products">
-            <button type="submit" (click)="addToOrder(product)">{{product.description}}</button>
-        </div>
-    </div>   
 </div>
