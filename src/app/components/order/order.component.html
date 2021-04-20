@@ -1,8 +1,8 @@
-<p>In the order component</p>
+
 <div class="submit-form">
     <div *ngIf="!submitted">
 
-        <label for="phonenumber">Phonenumber</label><br>
+        <br><label for="phonenumber">Phonenumber</label><br>
         <input type="text" id="phonenumber" required [(ngModel)]="order.phonenumber"/><br>    
         <label for="discount">Discount</label><br>    
         <input type="text" id="discount" [(ngModel)]="order.discount"/><br>    
@@ -26,7 +26,7 @@
     <!--Procedurally Generate Buttons from Products Table-->
     <div>
         <div *ngFor="let product of products">
-            <button type="button" (click)="addToOrder(product)">{{product.description}}</button>
+            <button type="submit" (click)="addToOrder(product)">{{product.description}}</button>
         </div>
     </div>   
 </div>

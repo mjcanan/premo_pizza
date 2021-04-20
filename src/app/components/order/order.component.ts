@@ -53,15 +53,6 @@ export class OrderComponent implements OnInit {
   }
   
   sendOrder() {
-    //hard coded to test backend -- FIX LATER
-    //let order : Order = new Order("666-666-6666",[2], new Date(),1.35,1,2,10.50,55501); 
-    
-    // this.order.phonenumber = "888-888-8888";
-    // this.order.discount = 1.00;
-    // this.order.employeeId = 1;
-    // this.order.quantity = 2;
-    // this.order.priceCharged = 14.50;
-    // this.order.zipcode = 55501;
 
     const orderData : Order = {
       phonenumber: this.order.phonenumber,
@@ -73,6 +64,7 @@ export class OrderComponent implements OnInit {
       priceCharged: this.order.priceCharged,
       zipcode: this.order.zipcode,
     }
+    //Checking for errors
     console.log(orderData);
 
     this.orderService.sendPostRequest(orderData).subscribe((data:any)=>{
@@ -86,7 +78,7 @@ export class OrderComponent implements OnInit {
   }
 
   newOrder() {
-    //clearing after submission
+    //clearing after submission NOT WORKING CURRENTLY
     this.order = {
       phonenumber: null,
       productIds: [],
