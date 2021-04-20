@@ -46,6 +46,11 @@ export class OrderComponent implements OnInit {
       this.products = data;
     });
   }
+
+  addToOrder(product){
+    this.order.productIds.push(product.productId);
+    console.log("Product ID: " + product.productId);
+  }
   
   sendOrder() {
     //hard coded to test backend -- FIX LATER

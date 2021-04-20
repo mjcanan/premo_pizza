@@ -21,5 +21,10 @@
     <div *ngIf="submitted">
         <h3>Order submitted!</h3>
         <button type="button" (click) = "newOrder()">New Order</button>
+    </div>
+    <div>
+        <div *ngFor="let product of products">
+            <button type="button" (click)="addToOrder(product)">{{product.description}}</button>
+        </div>
     </div>   
 </div>
