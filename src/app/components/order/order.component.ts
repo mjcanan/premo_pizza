@@ -8,6 +8,12 @@ import { Product } from 'src/app/interfaces/product';
   templateUrl: './order.component.html',
   styleUrls: ['./order.component.css']
 })
+
+/* *****************************************************************************
+  THIS COMPONENT IS FOR PLACING OF ORDERS (CREATE)
+    ORDER-LIST WILL HAVE A LIST OF ALL ORDERS (READ) -- WILL NEED SEARCH
+    ORDER-DETAILS WILL BE A GET BY ID (PHONENUMBER?) (UPDATE -- NO DELETE?)
+******************************************************************************* */
 export class OrderComponent implements OnInit {
 
   products: Product[] = [];
