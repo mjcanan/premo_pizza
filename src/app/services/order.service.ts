@@ -9,7 +9,7 @@ export class OrderService {
   private API_SERVER = "";
   constructor(private httpClient: HttpClient) { }
 
-  public sendGetRequest() {
+  public getProducts() {
     return this.httpClient.get("http://localhost:8080/order/products");
   }
   public sendPostRequest(data) {

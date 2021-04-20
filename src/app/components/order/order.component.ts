@@ -24,7 +24,7 @@ export class OrderComponent implements OnInit {
   constructor(private orderService: OrderService) { }
 
   ngOnInit(): void {
-    this.orderService.sendGetRequest().subscribe((data: Product[]) => {
+    this.orderService.getProducts().subscribe((data: Product[]) => {
       this.products = data;
     });
   }
