@@ -10,7 +10,7 @@ export class OrderService {
   constructor(private httpClient: HttpClient) { }
 
   public sendGetRequest() {
-    return this.httpClient.get("http://localhost:8080/products");
+    return this.httpClient.get("http://localhost:8080/order/products");
   }
   public sendPostRequest(data) {
     return this.httpClient.post("http://localhost:8080/order", data);
