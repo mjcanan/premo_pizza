@@ -17,7 +17,7 @@ import { Product } from 'src/app/interfaces/product';
 export class OrderComponent implements OnInit {
 
   products: Product[] = [];
-
+  subscription;
   //for checking if an order has been submitted
   submitted = false;
   order : Order = {
@@ -42,7 +42,7 @@ export class OrderComponent implements OnInit {
   constructor(private orderService: OrderService) { }
   
   ngOnInit(): void {
-    this.orderService.getProducts().subscribe((data: Product[]) => {
+    this.subscription = this.orderService.getProducts().subscribe((data: Product[]) => {
       this.products = data;
     });
   }
@@ -108,6 +108,10 @@ export class OrderComponent implements OnInit {
       zipcode: null
     }
     this.submitted = false;
+  }
+
+  ngOnDestroy() {
+    this.subscription.unsubscribe();
   }
 
 }
