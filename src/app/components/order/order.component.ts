@@ -17,15 +17,19 @@ import { Product } from 'src/app/interfaces/product';
 export class OrderComponent implements OnInit {
 
   products: Product[] = [];
-  orderDetail = [];
-  phonenumber: string = "0";
-  subtotal: number = 0;
-  tax: number = 0.00;
-  adjustment : number = 0;
-  grandTotal : number = 0;
-  displayedColumns = ['', 'Item', 'Description', 'Price'];
-  postOrder = {};
-  employeeid: number = 0;
+  
+  //for checking if an order has been submitted
+  submitted: boolean = false;
+
+  // orderDetail = [];
+  // phonenumber: string = "0";
+  // subtotal: number = 0;
+  // tax: number = 0.00;
+  // adjustment : number = 0;
+  // grandTotal : number = 0;
+  // displayedColumns = ['', 'Item', 'Description', 'Price'];
+  // postOrder = {};
+  // employeeid: number = 0;
 
   constructor(private orderService: OrderService) { }
 

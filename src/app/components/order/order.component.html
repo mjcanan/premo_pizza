@@ -1,7 +1,11 @@
 <p>In the order component</p>
-<form>
+<div class="submit-form">
+    <div *ngIf="!submitted"
     
-
-
-    <button type="button" (click)="sendOrder()">Click to Post</button>
-</form>
+    <form>
+        
+        
+        
+        <button type="button" (click)="sendOrder()">Click to Post</button>
+    </form>
+</div>
