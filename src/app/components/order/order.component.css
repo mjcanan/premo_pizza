@@ -1,0 +1,13 @@
+.product_buttons {
+    float:left;
+    width:33%;
+}
+
+.product_buttons button {
+    width: 95px;
+    height: 95px;
+    margin: 1px;
+    float:right;
+    text-align: center;
+    
+}

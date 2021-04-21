@@ -32,7 +32,10 @@
             [(ngModel)] = "employee.status" name = "status">
         </div>
         <br>
-        <br>
+        
         <button class = "btn btn-success" type = "submit"> Submit</button>
+        <div *ngIf="submitted" >
+            <h4>Employee Updated!</h4>
+        </div>
     </form>
     </div>

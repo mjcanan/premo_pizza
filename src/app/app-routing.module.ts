@@ -17,17 +17,17 @@ import { EmployeeUpdateComponent } from './components/employee/employee-update.c
 const routes: Routes = [
   {path: "product", component: ProductComponent},
   {path:"order", component: OrderComponent},
+  {path: "order/:id", component: OrderComponent},
   {path: "employee-list", component: EmployeeListComponent},
   {path: "employee-add", component: EmployeeAddComponent},
   {path: "employee-update/:id", component: EmployeeUpdateComponent},
   {path: "order-list", component: OrderListComponent},
   {path: "order-details/:id",component:OrderDetailsComponent},
   {path:"order", component: OrderComponent},
-  
-    {path:'',redirectTo: 'customers',pathMatch:'full'},
-    {path:"customer-search",component: CustomerListComponent},
-    {path:"customer-details/:id",component:CustomerDetailsComponent },
-    {path:"customer-add",component:AddCustomerComponent}
+  {path:'customers',component: CustomerListComponent},
+  {path: 'customers/:id',component:CustomerDetailsComponent },
+  {path:'add',component:AddCustomerComponent},
+  {path:'',redirectTo: 'customers',pathMatch:'full'}
 ];
 
 @NgModule({
