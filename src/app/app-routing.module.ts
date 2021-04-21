@@ -25,9 +25,9 @@ const routes: Routes = [
   {path:"order", component: OrderComponent},
   
     {path:'',redirectTo: 'customers',pathMatch:'full'},
-    {path:'customers',component: CustomerListComponent},
-    {path: 'customers/:id',component:CustomerDetailsComponent },
-    {path:'add',component:AddCustomerComponent}
+    {path:"customer-search",component: CustomerListComponent},
+    {path:"customer-details/:id",component:CustomerDetailsComponent },
+    {path:"customer-add",component:AddCustomerComponent}
 ];
 
 @NgModule({
