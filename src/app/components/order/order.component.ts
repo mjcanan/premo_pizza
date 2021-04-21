@@ -107,7 +107,8 @@ export class OrderComponent implements OnInit {
     //Checking for errors
     console.log(orderData);
 
-    this.orderService.sendPostRequest(orderData).subscribe((data:any)=>{
+    this.orderService.sendPostRequest(orderData).subscribe(
+      (data:any)=>{
       console.log(data);
       this.submitted = true;
     },

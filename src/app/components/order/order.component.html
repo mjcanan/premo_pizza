@@ -1,11 +1,12 @@
 
 <br>
+<!-- TODO: CSS instead of inline styling -->
 <div class="itemized-order" style="float:right;width:50%;">
     <table *ngFor="let id of order.productIds; let i = index;" style="text-align:left;border:1px solid black;border-collapse:collapse;">
         <tr style="border:1px solid black;">
             <td class="delete_col" style="width:46px;text-align:center;">
                 <button type="button" (click)="removeItem(i)" style="border:0;background-color:transparent;">
-                    Delete
+                    X
                 </button>
             </td>
             <td class="number_col" style="width:20px;">{{i+1}}.</td>

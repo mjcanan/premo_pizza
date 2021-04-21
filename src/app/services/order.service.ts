@@ -24,6 +24,10 @@ export class OrderService {
     return this.httpClient.get(`http://localhost:8080/order-details/${id}`)
   }
 
+  public getOrdersByPhonenumber(phonenumber){
+    return this.httpClient.get(`http://localhost:8080/order-list/${phonenumber}`)
+  }
+
   public updateOrder(id, data) {
     return this.httpClient.put(`http://localhost:8080/order-details/${id}`, data);
   }

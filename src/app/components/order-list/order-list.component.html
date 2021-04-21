@@ -1,4 +1,10 @@
-<table>
+<div class="searchbar">
+    <input type="text" placeholder="Search by phonenumber" [(ngModel)]="phonenumber"/>
+    <button type="button" (click)="searchOrders()">Search</button>
+</div>
+<div>
+    <br>
+    <table>
     <tr>
         <th>Order ID</th>
         <th>Phone Number</th>
@@ -19,3 +25,4 @@
     </tr>
 
 </table>
+</div>
