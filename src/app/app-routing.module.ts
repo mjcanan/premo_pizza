@@ -17,6 +17,7 @@ import { EmployeeUpdateComponent } from './components/employee/employee-update.c
 const routes: Routes = [
   {path: "product", component: ProductComponent},
   {path:"order", component: OrderComponent},
+  {path: "order/:id", component: OrderComponent},
   {path: "employee-list", component: EmployeeListComponent},
   {path: "employee-add", component: EmployeeAddComponent},
   {path: "employee-update/:id", component: EmployeeUpdateComponent},

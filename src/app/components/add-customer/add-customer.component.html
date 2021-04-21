@@ -54,6 +54,7 @@
       <div *ngIf="submitted">
         <h4>Customer is added successfully!</h4>
         <button class="btn btn-success" (click)="newCustomer()">Add New Customer</button>
+        <button class="btn btn-primary" routerLink="../order/{{customer.phonenumber}}">Place Order</button>
       </div>
     </div>
   </div>
