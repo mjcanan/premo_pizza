@@ -12,9 +12,21 @@ export class OrderListComponent implements OnInit {
   constructor(private orderService : OrderService) { }
 
   ngOnInit(): void {
+    this.retrieveOrders();
+  }
+
+  retrieveOrders() : void {
     this.orderService.getOrders().subscribe((data:any) => {
       this.orders = data;
     });
+  }
+  delete(id): void {
+    this.orderService.deleteOrder(id).subscribe((data:any) => {
+      console.log(data);
+      this.retrieveOrders();
+    });
+    
+    
   }
 
 }

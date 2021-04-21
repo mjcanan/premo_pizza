@@ -60,6 +60,7 @@ export class OrderComponent implements OnInit {
   
   }
 
+  //add items to order array, update pricecharged and quantity
   addToOrder(product){
     this.order.productIds.push(product.productId);
     this.order.quantity += 1;
@@ -67,10 +68,11 @@ export class OrderComponent implements OnInit {
     console.log("Product ID: " + product.productId);
   }
 
-  //removes items from order and adjusts priceCharged
+  //removes items from order and adjusts priceCharged and quantity
   removeItem(index) {
     let id = this.order.productIds.splice(index, 1);
     this.order.priceCharged -= this.products[id[0]-1].price;
+    this.order.quantity--;
   }
 
   //function to handle changes to discount 

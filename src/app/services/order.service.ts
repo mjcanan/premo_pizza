@@ -27,4 +27,8 @@ export class OrderService {
   public updateOrder(id, data) {
     return this.httpClient.put(`http://localhost:8080/order-details/${id}`, data);
   }
+
+  public deleteOrder(id){
+    return this.httpClient.delete(`http://localhost:8080/order-list/${id}`)
+  }
 }
