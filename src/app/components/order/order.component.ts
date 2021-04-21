@@ -61,9 +61,9 @@ export class OrderComponent implements OnInit {
     if (this.router.url.includes('order/')){
       this.customerService.getCustomerById(this.route.snapshot.paramMap.get('id')).subscribe((data:any) => {
         this.currentCustomer = data;
+        this.order.phonenumber = this.currentCustomer.phonenumber;
+        this.order.zipcode = this.currentCustomer.zipcode;
       })
-      this.order.phonenumber = this.currentCustomer.phonenumber;
-      this.order.zipcode = this.currentCustomer.zipcode;
     }
     this.subscription = this.orderService.getProducts().subscribe((data: Product[]) => {
       this.products = data;
