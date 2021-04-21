@@ -42,7 +42,7 @@
         <!-- If you are coming from order-details, these buttons-->
         <div *ngIf="details">
             <button type="button" (click)="update()">Update Order</button>
-            <button type="button"><a routerLink="../order-list">Cancel</a></button>
+            <button type="button"><a routerLink="../../order-list">Cancel</a></button>
         </div>
         <!--Procedurally Generate Buttons from Products Table-->
         <div>
@@ -59,7 +59,7 @@
     </div>
     <div *ngIf="updated">
         <h3>Order Updated!</h3>
-        <button type="button"><a routerLink="../order-list">Return to Orders</a></button>
+        <button type="button"><a routerLink="../../order-list">Return to Orders</a></button>
         <button type="button"><a routerLink="">Home</a></button>
     </div>
 </div>
