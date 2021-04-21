@@ -11,6 +11,7 @@ import { Employee } from 'src/app/interfaces/employee';
 })
 export class EmployeeUpdateComponent implements OnInit {
  id: number;
+ submitted: boolean = false;
  employee: Employee = new Employee();
   constructor(private route: ActivatedRoute,private router: Router,
     private employeeService: EmployeeService) { }
@@ -32,9 +33,11 @@ export class EmployeeUpdateComponent implements OnInit {
 
 onSubmit() {
   this.updateEmployee();    
+  this.submitted  = true;
+  
 }
 
 gotoList() {
-  this.router.navigate(['/employees']);
+  this.router.navigate(['/employee-list']);
 }
 }
