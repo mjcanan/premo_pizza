@@ -1,0 +1,66 @@
+
+<br>
+<!-- TODO: CSS instead of inline styling -->
+<div class="itemized-order" style="float:right;width:50%;">
+    <table *ngFor="let id of order.productIds; let i = index;" style="text-align:left;border:1px solid black;border-collapse:collapse;">
+        <tr style="border:1px solid black;">
+            <td class="delete_col" style="width:46px;text-align:center;">
+                <button type="button" (click)="removeItem(i)" style="border:0;background-color:transparent;">
+                    X
+                </button>
+            </td>
+            <td class="number_col" style="width:20px;">{{i+1}}.</td>
+            <td class="description_col" style="width:100px;">{{products[id-1].description}}</td>
+            <td class="price_col" style="width:60px;text-align:right;">{{products[id-1].price | currency}}</td>
+        </tr>
+                        
+    </table>  
+</div>
+<div class="submit-form" style="float:left;width:50%;">
+
+    <div *ngIf="!submitted && !updated">
+
+        <br><label for="phonenumber">Phonenumber</label><br>
+        <input type="text" id="phonenumber" required [(ngModel)]="order.phonenumber"/><br>    
+        <label for="discount">Discount</label><br>    
+        <input type="text" id="discount" [(ngModel)]="order.discount" (change)="subtractDiscount()"/><br>    
+        <label for="employeeId">Employee ID</label><br>    
+        <input type="text" id="employeeId" [(ngModel)]="order.employeeId"/><br>    
+        <label for="priceCharged">Total</label><br>
+        <!-- No banana in a box -- needed to get pipe to work -->    
+        <input type="text" id="priceCharged" [ngModel]="order.priceCharged | currency" (ngModelChange)="order.priceCharged=$event" readonly/><br>    
+        <label>Zipcode</label><br>
+        <!--TODO: make this a select drop down box-->    
+        <input type="text" id="zipcode" [(ngModel)]="order.zipcode"/><br>
+        
+        <input type="hidden" [(ngModel)]="order.productIds">
+        <input type="hidden" [(ngModel)]="order.quantity">
+    
+        <!-- Which button depends on routing -->
+        <div *ngIf="!details" >
+            <br><button type="button" (click)="sendOrder()">Submit Order</button>
+        </div>
+        <!-- If you are coming from order-details, these buttons-->
+        <div *ngIf="details">
+            <button type="button" (click)="update()">Update Order</button>
+            <button type="button"><a routerLink="../../order-list">Cancel</a></button>
+        </div>
+        <!--Procedurally Generate Buttons from Products Table-->
+        <div>
+            <div *ngFor="let product of products">
+                <button type="submit" (click)="addToOrder(product)">{{product.description}}</button>
+            </div>
+        </div>   
+    </div>
+    <!-- Which buttons display depending on routing -->
+    <div *ngIf="submitted">
+        <h3>Order submitted!</h3>
+        <button type="button" (click) = "newOrder()">New Order</button>
+        <button type="button"><a routerLink="">Home</a></button>
+    </div>
+    <div *ngIf="updated">
+        <h3>Order Updated!</h3>
+        <button type="button"><a routerLink="../../order-list">Return to Orders</a></button>
+        <button type="button"><a routerLink="">Home</a></button>
+    </div>
+</div>

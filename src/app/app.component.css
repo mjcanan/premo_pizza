@@ -1,0 +1,11 @@
+li {
+    display: inline;
+    padding: 0;
+    margin: 10px;
+}
+
+a{
+    text-decoration: none;
+    border: 1px solid blue;
+    padding: 5px;
+}
