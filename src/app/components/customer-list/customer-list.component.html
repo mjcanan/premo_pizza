@@ -1,0 +1,76 @@
+<div class="list row">
+    <div class="col-md-8">
+      <div class="input-group mb-3">
+        <input
+          type="text"
+          class="form-control"
+          placeholder="Search by Phonenumber"
+          [(ngModel)]="phonenumber"
+        />
+        <div class="input-group-append">
+          <button
+            class="btn btn-outline-secondary"
+            type="button"
+            (click)="searchPhonenumber()"
+          >
+            Search
+          </button>
+        </div>
+      </div>
+    </div>
+    
+    <!--<div class="col-md-6">
+      <h4>customer List</h4>
+      <ul class="list-group">
+        <li
+          class="list-group-item"
+          *ngFor="let customer of customer; let i = index"
+          [class.active]="i == currentIndex"
+          (click)="setActiveCustomer(customer, i)"
+        >
+          {{ customer.phonenumber }}
+        </li>
+      </ul>
+  
+      <button class="m-3 btn btn-sm btn-danger" (click)="removeAllCustomers()">
+        Remove All
+      </button>
+    </div> -->
+    <div class="col-md-6">
+      <div *ngIf="currentCustomer"> 
+        <h4>Customer</h4>
+        <div>
+          <label><strong>phonenumber:</strong></label> 
+          {{ currentCustomer.phonenumber}}
+        </div>
+                
+        <div>
+          <label><strong>name:</strong></label>
+          {{ currentCustomer.name }}
+        </div>
+
+        <div>
+            <label><strong>address:</strong></label>
+            {{ currentCustomer.address }}
+        </div>
+
+        <div>
+            <label><strong>zipcode:</strong></label>
+            {{ currentCustomer.zipcode }}
+        </div>
+       <div>
+       
+        <a class="badge badge-warning" routerLink="/customers/{{currentCustomer.id}}">
+          Edit
+        </a>
+      </div>
+  
+     <div *ngIf="!currentCustomer">
+        <br />
+        <p>Please click on a Customer...</p>
+      </div>
+      </div>
+     </div> 
+    
+  
+  
