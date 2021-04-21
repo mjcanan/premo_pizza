@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { CustomerService } from 'src/app/service/customer.service';
 import { Customer } from '../../interfaces/customer';
 
@@ -8,6 +9,7 @@ import { Customer } from '../../interfaces/customer';
   styleUrls: ['./customer-list.component.css']
 })
 export class CustomerListComponent implements OnInit {
+  [x: string]: any;
 
   //customer:any;
   //currentCustomer = null;
@@ -18,23 +20,14 @@ export class CustomerListComponent implements OnInit {
 
 
 
-  constructor(private customerService: CustomerService) { }
+  constructor(private customerService: CustomerService,
+    private router: Router) { }
 
   ngOnInit(): void {
-    this.retrieveCustomers();
-  }
+    
+      }
 
-  retrieveCustomers(): void {
-    this.customerService.getAll()
-      .subscribe(
-        data => {
-          this.currentCustomer = data;
-          console.log(data);
-        },
-        error => {
-          console.log(error);
-        });
-  }
+ 
 
   refreshList(): void {
     this.retrieveCustomers();
@@ -60,7 +53,7 @@ export class CustomerListComponent implements OnInit {
   }
 
   searchPhonenumber(): void {
-    this.customerService.getCustomerById(this.phonenumber)
+    this.customerService.getCustomerById(this.phonenumber) 
       .subscribe(
         data => {
           this.currentCustomer = data;
@@ -70,6 +63,7 @@ export class CustomerListComponent implements OnInit {
           console.log(error);
         });
   }
+ 
 }
 
 
