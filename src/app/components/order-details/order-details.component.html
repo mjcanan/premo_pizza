@@ -21,13 +21,13 @@
         <input type="text" id="productIds" [(ngModel)]="order.productIds"><br>
         <label for="quantity">Quantity</label><br>
         <input type="text" id="quantity" [(ngModel)]="order.quantity"><br>
-        <button type="button" (click)="update()">Update Order</button>
+        <button type="button" (click)="update()">Update Order</button>        <button type="button"><a routerLink="../../order-list">Return to Orders</a></button>
+        <button type="button"><a routerLink="">Home</a></button>
         <button type="button"><a routerLink="../../order-list">Cancel</a></button>
     </div>
     <div *ngIf="updated">
         <h3>Order Updated</h3>
-        <button type="button"><a routerLink="../../order-list">Return to Orders</a></button>
-        <button type="button"><a routerLink="">Home</a></button>
+
     </div>     -->
         
     <!-- <br>
