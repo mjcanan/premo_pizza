@@ -23,11 +23,10 @@ const routes: Routes = [
   {path: "order-list", component: OrderListComponent},
   {path: "order-details/:id",component:OrderDetailsComponent},
   {path:"order", component: OrderComponent},
-  
-    {path:'',redirectTo: 'customers',pathMatch:'full'},
-    {path:'customers',component: CustomerListComponent},
-    {path: 'customers/:id',component:CustomerDetailsComponent },
-    {path:'add',component:AddCustomerComponent}
+  {path:'customers',component: CustomerListComponent},
+  {path: 'customers/:id',component:CustomerDetailsComponent },
+  {path:'add',component:AddCustomerComponent},
+  {path:'',redirectTo: 'customers',pathMatch:'full'}
 ];
 
 @NgModule({
