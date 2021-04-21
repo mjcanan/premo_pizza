@@ -22,7 +22,7 @@ export class CustomerDetailsComponent implements OnInit {
   ngOnInit(): void {
     this.message = '';
     
-    this.getCustomerById(this.route.snapshot.paramMap.get[id]);
+    this.getCustomerById(this.route.snapshot.paramMap.get['id']);
   }
 
   getCustomerById(id): void {
