@@ -7,7 +7,7 @@ export class Employee {
     public status : boolean
     
 
-    constructor(employeeid: number, employee_name: string, address: string, hourly_rate: number, hours_worked: number, status: boolean){
+    /*constructor(employeeid: number, employee_name: string, address: string, hourly_rate: number, hours_worked: number, status: boolean){
 
         this.employeeid = employeeid;
         this.employee_name = employee_name;
@@ -15,5 +15,5 @@ export class Employee {
         this.hourly_rate = hourly_rate;
         this.hours_worked = hours_worked;
         this.status = status;
-            }
+            }*/
 }
