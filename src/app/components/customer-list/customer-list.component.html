@@ -60,9 +60,10 @@
         </div>
        <div>
        
-        <a class="badge badge-warning" routerLink="/customers/{{currentCustomer.id}}">
+        <a class="badge badge-warning" routerLink="/customers/{{currentCustomer.phonenumber}}">
           Edit
         </a>
+        <a class="badge badge-success" routerLink="/order/{{currentCustomer.phonenumber}}">Add Order</a>
       </div>
   
      <div *ngIf="!currentCustomer">

@@ -3,6 +3,8 @@ import { OrderService } from 'src/app/services/order.service';
 import { Order } from 'src/app/interfaces/order';
 import { Product } from 'src/app/interfaces/product';
 import { ActivatedRoute, Router } from '@angular/router';
+import { CustomerService } from 'src/app/service/customer.service';
+import { Customer } from '../interface/customer';
 
 @Component({
   selector: 'app-order',
@@ -23,6 +25,7 @@ export class OrderComponent implements OnInit {
   submitted = false;
   details = false;
   updated = false;
+  currentCustomer: Customer;
   order : Order = {
     phonenumber: null,
     productIds: [],
@@ -43,6 +46,7 @@ export class OrderComponent implements OnInit {
   // employeeid: number = 0;
   
   constructor(private orderService: OrderService,
+              private customerService: CustomerService,
               private route: ActivatedRoute,
               private router: Router) { }
             
@@ -53,6 +57,13 @@ export class OrderComponent implements OnInit {
         this.order = data 
       });
       this.details = true;
+    }
+    if (this.router.url.includes('order/')){
+      this.customerService.getCustomerById(this.route.snapshot.paramMap.get('id')).subscribe((data:any) => {
+        this.currentCustomer = data;
+      })
+      this.order.phonenumber = this.currentCustomer.phonenumber;
+      this.order.zipcode = this.currentCustomer.zipcode;
     }
     this.subscription = this.orderService.getProducts().subscribe((data: Product[]) => {
       this.products = data;
