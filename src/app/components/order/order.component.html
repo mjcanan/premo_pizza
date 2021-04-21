@@ -1,10 +1,10 @@
 
 <!-- TODO: CSS instead of inline styling -->
 <div class="itemized-order" style="float:right;width:33%;">
-    <table *ngFor="let id of order.productIds; let i = index;" style="text-align:left;border:1px solid black;border-collapse:collapse;">
-        <tr style="border:1px solid black;">
+    <table class="table table-striped"  style="text-align:left;border:1px solid black;border-collapse:collapse;float:right;">
+        <tr *ngFor="let id of order.productIds; let i = index;" style="border:1px solid black;">
             <td class="delete_col" style="width:46px;text-align:center;">
-                <button type="button" (click)="removeItem(i)" style="border:0;background-color:transparent;">
+                <button type="button" class="badge badge-danger" (click)="removeItem(i)">
                     X
                 </button>
             </td>
@@ -30,7 +30,7 @@
         <input type="text" class = "form-control" id="priceCharged" [ngModel]="order.priceCharged | currency" (ngModelChange)="order.priceCharged=$event" readonly/><br>    
         <label>Zipcode</label><br>
 
-        <input type="text" id="zipcode" [(ngModel)]="order.zipcode"/><br>
+        <input type="text" id="zipcode" class="form-control" [(ngModel)]="order.zipcode"/><br>
 
         <!--TODO: make this a select drop down box--> 
         <!-- <select name="zipcode" class="browser-default custom-select" id="zipcode" [(ngModel)]="order.zipcode">
@@ -58,6 +58,9 @@
         <button type="button"><a routerLink="">Home</a></button>
     </div>
 </div>
+
+
+
 <!--Procedurally Generate Buttons from Products Table-->
 <div class="product_buttons">
     <div *ngFor="let product of products">
