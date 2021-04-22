@@ -15,41 +15,54 @@
 
         </table>
     </div>
-    <div class="input-group mb-3" style="float:left;width:32%;">
 
+    <form (ngSubmit)="submit()" #orderForm="ngForm" validate>
+        <div class="input-group mb-3" style="float:left;width:32%;">
+            <div>
+                <label for="phonenumber">Phonenumber</label>
+                <input type="text" class="form-control" id="phonenumber" required [(ngModel)]="order.phonenumber"
+                    name="phonenumber" #name="ngModel" />
+                <label for="discount">Discount</label>
+                <input type="text" class="form-control" id="discount" [(ngModel)]="order.discount"
+                    (change)="subtractDiscount()" name="discount" #name="ngModel" />
+                <label for="employeeId">Employee ID</label>
+                <input type="text" class="form-control" id="employeeId" required [(ngModel)]="order.employeeId"
+                    name="employeeId" #name="ngModel" />
+                <label for="priceCharged">Total</label><br>
+                <!-- No banana in a box -- needed to get pipe to work -->
+                <input type="text" class="form-control" id="priceCharged" [ngModel]="order.priceCharged | currency"
+                    (ngModelChange)="order.priceCharged=$event" name="priceCharge" #name="ngModel" readonly />
+                <label>Zipcode</label>
 
-        <div>
-            <br><label for="phonenumber">Phonenumber</label><br>
-            <input type="text" class="form-control" id="phonenumber" required [(ngModel)]="order.phonenumber" /><br>
-            <label for="discount">Discount</label><br>
-            <input type="text" class="form-control" id="discount" [(ngModel)]="order.discount"
-                (change)="subtractDiscount()" /><br>
-            <label for="employeeId">Employee ID</label><br>
-            <input type="text" class="form-control" id="employeeId" [(ngModel)]="order.employeeId" /><br>
-            <label for="priceCharged">Total</label><br>
-            <!-- No banana in a box -- needed to get pipe to work -->
-            <input type="text" class="form-control" id="priceCharged" [ngModel]="order.priceCharged | currency"
-                (ngModelChange)="order.priceCharged=$event" readonly /><br>
-            <label>Zipcode</label><br>
+                <input type="text" id="zipcode" class="form-control" required [(ngModel)]="order.zipcode" name="zipcode"
+                    #name="ngModel" />
+                <br>
+                <!--TODO: make this a select drop down box-->
+                <!-- <select name="zipcode" class="browser-default custom-select" id="zipcode" [(ngModel)]="order.zipcode">
+                <option value="55501">55501</option>
+                <option value="55502">55502</option>
+                <option value="55503">55503</option>
+                <option value="55504">55504</option>
+            </select>    -->
 
-            <input type="text" id="zipcode" class="form-control" [(ngModel)]="order.zipcode" /><br>
+                <input type="hidden" [(ngModel)]="order.productIds">
+                <input type="hidden" [(ngModel)]="order.quantity">
 
-            <!--TODO: make this a select drop down box-->
-            <!-- <select name="zipcode" class="browser-default custom-select" id="zipcode" [(ngModel)]="order.zipcode">
-            <option value="55501">55501</option>
-            <option value="55502">55502</option>
-            <option value="55503">55503</option>
-            <option value="55504">55504</option>
-        </select>    -->
-
-            <input type="hidden" [(ngModel)]="order.productIds">
-            <input type="hidden" [(ngModel)]="order.quantity">
-
+            </div>
+            <!-- Which button depends on routing -->
+            <div *ngIf="!details">
+                <button type="submit" [disabled]="!orderForm.form.valid" class="btn btn-success"
+                    style="float:left;margin-right:5px;">Submit
+                    Order</button>
+            </div>
+            <!-- If you are coming from order-details, these buttons-->
+            <div *ngIf="details">
+                <button type="submit" [disabled]="!orderForm.form.valid" class="btn btn-success"
+                    style="float:left;margin-right:5px;">Update Order</button>
+            </div>
             <button type="button" class="btn btn-danger" routerLink="">Cancel</button>
-
         </div>
-
-    </div>
+    </form>
 
 
 
@@ -59,25 +72,17 @@
             <button type="submit" class="btn btn-secondary"
                 (click)="addToOrder(product)">{{product.description}}</button>
         </div>
-        <!-- Which button depends on routing -->
-        <div *ngIf="!details">
-            <br><button type="button" class="btn btn-success" (click)="sendOrder()">Submit Order</button>
-        </div>
-        <!-- If you are coming from order-details, these buttons-->
-        <div *ngIf="details">
-            <button type="button" class="btn btn-success" (click)="update()">Update Order</button>
-        </div>
     </div>
-</div>
 
+</div>
 <!-- Which buttons display depending on routing -->
 <div *ngIf="submitted">
     <h3>Order submitted!</h3>
-    <button type="button" class="btn btn-success" (click)="newOrder()" style="margin:5px;">New Order</button>
-    <button type="button" class="btn btn-primary" routerLink="">Home</button>
+    <button type="button" (click)="newOrder()" class="btn btn-success">New Order</button>
+    <button type="button" routerLink="" class="btn btn-primary">Home</button>
 </div>
 <div *ngIf="updated">
     <h3>Order Updated!</h3>
-    <button type="button" class="btn btn-success" routerLink="../../order-list" style="margin:5px;">Return to Orders</button>
-    <button type="button" class="btn btn-primary" routerLink="">Home</button>
+    <button type="button" routerLink="../../order-list" class="btn btn-success" style="margin-right:5px;">Return to Orders</button>
+    <button type="button" routerLink="" class="btn btn-primary">Home</button>
 </div>

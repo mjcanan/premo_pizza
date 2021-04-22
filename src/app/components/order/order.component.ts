@@ -23,6 +23,7 @@ export class OrderComponent implements OnInit {
   subscription;
   //for checking if an order has been submitted
   submitted = false;
+  //to see if we are in the order-details view
   details = false;
   updated = false;
   currentCustomer: Customer;
@@ -36,14 +37,6 @@ export class OrderComponent implements OnInit {
     priceCharged: null,
     zipcode: null
   }
-  
-  // subtotal: number = 0;
-  // tax: number = 0.00;
-  // adjustment : number = 0;
-  // grandTotal : number = 0;
-  // displayedColumns = ['', 'Item', 'Description', 'Price'];
-  // postOrder = {};
-  // employeeid: number = 0;
   
   constructor(private orderService: OrderService,
               private customerService: CustomerService,
@@ -93,6 +86,13 @@ export class OrderComponent implements OnInit {
         sum += this.products[this.order.productIds[i]-1].price;
       };
       this.order.priceCharged = sum - this.order.discount;
+  }
+  submit() {
+    if (this.details){
+      this.update();
+    } else {
+      this.sendOrder();
+    }
   }
 
   update() {
