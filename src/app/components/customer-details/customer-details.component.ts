@@ -14,6 +14,7 @@ export class CustomerDetailsComponent implements OnInit {
   currentCustomer : Customer;
   message = '';
   id: any;
+  phonenumber:number;
 
   constructor(
     private customerService: CustomerService,
@@ -22,13 +23,14 @@ export class CustomerDetailsComponent implements OnInit {
 
   ngOnInit(): void {
     this.message = '';
-    //this.getCustomerById(this.route.snapshot.paramMap.get('phonenumber'));
-    this.getCustomerByPhonenumber(this.route.snapshot.paramMap.get('id'));
+
+    this.getCustomerByPhonenumber();
+    //this.getCustomerByPhonenumber(this.route.snapshot.paramMap.get('id'));
   }
 
 
-  getCustomerByPhonenumber(id): void {
-    this.customerService.getCustomerById(id)
+  getCustomerByPhonenumber(): void {
+    this.customerService.getCustomerById(this.phonenumber)
       .subscribe(
         data => {
           this.currentCustomer= data;
@@ -40,7 +42,7 @@ export class CustomerDetailsComponent implements OnInit {
   }
   updatecustomer(): void {
     
-      this.customerService.update(this.currentCustomer.id, this.currentCustomer)
+      this.customerService.update(this.currentCustomer.phonenumber, this.currentCustomer)
         .subscribe(
           response => {
             console.log(response);

@@ -17,9 +17,9 @@ export class CustomerService {
   getCustomerById(phonenumber): Observable<any> {
     return this.http.get(`${this.baseUrl}/${phonenumber}`);
   }
-/*  getCustomerByPhonenumber(phonenumber): Observable<any> {
-    return this.http.get(`${this.baseUrl}/${phonenumber}`);
-  }*/
+  // getCustomerByPhonenumber(phonenumber): Observable<any> {
+  //    return this.http.get(`${this.baseUrl}/${phonenumber}`);
+  // }
 
   createCustomer(data): Observable<any> {
     return this.http.post(`${this.baseUrl}`, data);
