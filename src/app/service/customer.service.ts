@@ -17,16 +17,16 @@ export class CustomerService {
   getCustomerById(phonenumber): Observable<any> {
     return this.http.get(`${this.baseUrl}/${phonenumber}`);
   }
-/*  getCustomerByPhonenumber(phonenumber): Observable<any> {
+  getCustomerByPhonenumber(phonenumber): Observable<any> {
     return this.http.get(`${this.baseUrl}/${phonenumber}`);
-  }*/
+  }
 
   createCustomer(data): Observable<any> {
     return this.http.post(`${this.baseUrl}`, data);
   }
 
-  update(phonenumber, data): Observable<any> {
-    return this.http.put(`${this.baseUrl}/${phonenumber}`, data);
+  update(id, data): Observable<any> {
+    return this.http.put(`${this.baseUrl}/${id}`, data);
   }
 
   delete(id): Observable<any> {
