@@ -15,6 +15,9 @@ import { OrderListComponent } from './components/order-list/order-list.component
 import { EmployeeListComponent } from './components/employee/employee-list.component';
 import { EmployeeAddComponent } from './components/employee/employee-add.component';
 import { EmployeeUpdateComponent } from './components/employee/employee-update.component';
+import { EmployeeSalesComponent } from './components/employee-report/employee-sales.component';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
+
 
 
 
@@ -32,6 +35,7 @@ import { EmployeeUpdateComponent } from './components/employee/employee-update.c
     EmployeeListComponent,
     EmployeeAddComponent,
     EmployeeUpdateComponent,
+    EmployeeSalesComponent,
     
     
   ],
@@ -39,7 +43,8 @@ import { EmployeeUpdateComponent } from './components/employee/employee-update.c
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    Ng2SearchPipeModule
   ],
   providers: [],
   bootstrap: [AppComponent]
