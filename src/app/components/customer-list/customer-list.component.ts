@@ -27,33 +27,8 @@ export class CustomerListComponent implements OnInit {
     
       }
 
- 
-
-  refreshList(): void {
-    this.retrieveCustomers();
-    this.currentCustomer = null;
-    this.currentIndex = -1;
-  }
-
-  setActiveCustomer(customer, index): void {
-    this.currentCustomer= customer;
-    this.currentIndex = index;
-  }
-
-  removeAllCustomers(): void {
-    this.customerService.deleteAll()
-      .subscribe(
-        response => {
-          console.log(response);
-          this.retrieveCustomers();
-        },
-        error => {
-          console.log(error);
-        });
-  }
-
   searchPhonenumber(): void {
-    this.customerService.getCustomerById(this.phonenumber) 
+    this.customerService.getCustomerByPhonenumber(this.phonenumber) 
       .subscribe(
         data => {
           this.currentCustomer = data;

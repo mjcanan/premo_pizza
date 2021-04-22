@@ -51,7 +51,7 @@
             {{ currentCustomer.zipcode }}
         </div>
        
-        <a class="badge badge-warning" routerLink="/customers/{{currentCustomer.phonenumber}}">
+        <a class="badge badge-info" routerLink="/customers/{{currentCustomer.phonenumber}}">
           Edit
         </a>
         <a class="badge badge-success" routerLink="/order/{{currentCustomer.phonenumber}}">Add Order</a>
@@ -59,7 +59,7 @@
   
      <div *ngIf="!currentCustomer">
         <br />
-        <p>Please click on a Customer...</p>
+        <p></p>
       </div>
       </div>
      </div> 
