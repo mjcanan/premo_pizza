@@ -1,38 +1,38 @@
 <div class ="col-md-6 offset-md-3">
 <h3> Add Employee</h3>
-<form (ngSubmit) = "onSubmit()">
+<form (ngSubmit) = "onSubmit()" #employeeForm="ngForm" validate>
     <div>
         <label>ID</label>
         <input type ="text" class = "form-control" id="employeeid" 
-        [(ngModel)] = "employee.employeeid" name = "employeeid">
+        [(ngModel)] = "employee.employeeid" name = "employeeid" #name="ngModel" required>
     </div>
     <div>
         <label>Name</label>
         <input type ="text" class = "form-control" id="employee_name" 
-        [(ngModel)] = "employee.employee_name" name = "employee_name">
+        [(ngModel)] = "employee.employee_name" name = "employee_name" #name="ngModel" required>
     </div>
     <div>
         <label>Address</label>
         <input type ="text" class = "form-control" id="address" 
-        [(ngModel)] = "employee.address" name = "address">
+        [(ngModel)] = "employee.address" name = "address" #name="ngModel" required>
     </div>
     <div>
         <label>Rate</label>
         <input type ="text" class = "form-control" id="hourly_rate" 
-        [(ngModel)] = "employee.hourly_rate" name = "hourly_rate">
+        [(ngModel)] = "employee.hourly_rate" name = "hourly_rate" #name="ngModel" required>
     </div>
     <div>
         <label>Hours Worked</label>
         <input type ="text" class = "form-control" id="hours_worked" 
-        [(ngModel)] = "employee.hours_worked" name = "hours_worked">
+        [(ngModel)] = "employee.hours_worked" name = "hours_worked" #name="ngModel">
     </div>
     <div>
         <label>Status</label>
         <input type ="text" class = "form-control" id="status" 
-        [(ngModel)] = "employee.status" name = "status">
+        [(ngModel)] = "employee.status" name = "status" #name="ngModel" required>
     </div>
     <br>
     <br>
-    <button class = "btn btn-success" type = "submit"> Submit</button>
+    <button class = "btn btn-success" type = "submit" [disabled]="!employeeForm.form.valid">Submit</button>
 </form>
 </div>
