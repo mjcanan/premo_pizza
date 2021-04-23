@@ -9,30 +9,33 @@ export class OrderService {
   constructor(private httpClient: HttpClient) { }
 
   public getProducts() {
-    return this.httpClient.get("http://localhost:8080/order/products");
+    return this.httpClient.get("http://localhost:8081/order/products");
   }
 
   public sendPostRequest(data) {
-    return this.httpClient.post("http://localhost:8080/order", data);
+    return this.httpClient.post("http://localhost:8081/order", data);
   }
 
   public getOrders() {
-    return this.httpClient.get("http://localhost:8080/order-list");
+    return this.httpClient.get("http://localhost:8081/order-list");
   }
 
   public getOrderById(id) {
-    return this.httpClient.get(`http://localhost:8080/order-details/${id}`)
+    return this.httpClient.get(`http://localhost:8081/order-details/${id}`)
   }
 
+  public getAllEmployeeById(employeeID) {
+    return this.httpClient.get(`http://localhost:8081/order/${employeeID}`)
+  }
   public getOrdersByPhonenumber(phonenumber){
-    return this.httpClient.get(`http://localhost:8080/order-list/${phonenumber}`)
+    return this.httpClient.get(`http://localhost:8081/order-list/${phonenumber}`)
   }
 
   public updateOrder(id, data) {
-    return this.httpClient.put(`http://localhost:8080/order-details/${id}`, data);
+    return this.httpClient.put(`http://localhost:8081/order-details/${id}`, data);
   }
 
   public deleteOrder(id){
-    return this.httpClient.delete(`http://localhost:8080/order-list/${id}`)
+    return this.httpClient.delete(`http://localhost:8081/order-list/${id}`)
   }
 }

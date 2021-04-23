@@ -17,6 +17,8 @@ import { EmployeeAddComponent } from './components/employee/employee-add.compone
 import { EmployeeUpdateComponent } from './components/employee/employee-update.component';
 import { EmployeeSalesComponent } from './components/employee-report/employee-sales.component';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { OrderEmpoyeeSalesComponent } from './components/order-employee-report/order-empoyee-sales.component';
+
 
 
 
@@ -36,6 +38,7 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
     EmployeeAddComponent,
     EmployeeUpdateComponent,
     EmployeeSalesComponent,
+    OrderEmpoyeeSalesComponent 
     
     
   ],

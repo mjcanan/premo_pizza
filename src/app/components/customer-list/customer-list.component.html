@@ -22,7 +22,7 @@
     
   <div class="col-md-6">
       <div *ngIf="currentCustomer"> 
-        <h4>Customer</h4>
+        <h5 style="color:blueviolet">Existing Customer </h5>
         <div>
           <label><strong>Customer ID:</strong></label> 
           {{ currentCustomer.id}}
@@ -51,10 +51,10 @@
             {{ currentCustomer.zipcode }}
         </div>
        
-        <a class="badge badge-info" routerLink="/customers/{{currentCustomer.phonenumber}}">
-          Edit
+        <a class="badge badge-success" routerLink="/customers/{{currentCustomer.phonenumber}}">
+          Edit Customer
         </a>
-        <a class="badge badge-success" routerLink="/order/{{currentCustomer.phonenumber}}">Add Order</a>
+        <a class="badge badge-info" routerLink="/order/{{currentCustomer.phonenumber}}">Add Order</a>
       </div>
   
      <div *ngIf="!currentCustomer">
