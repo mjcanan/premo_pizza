@@ -41,8 +41,8 @@ import { BrowserAnimationsModule} from '@angular/platform-browser/animations';
     EmployeeAddComponent,
     EmployeeUpdateComponent,
     EmployeeSalesComponent,
-    OrderEmpoyeeSalesComponent 
-    ChartsComponent,
+    OrderEmpoyeeSalesComponent, 
+    ChartsComponent
   ],
   imports: [
     BrowserModule,
