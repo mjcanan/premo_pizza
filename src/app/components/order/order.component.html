@@ -45,22 +45,22 @@
                 <option value="55504">55504</option>
             </select>    -->
 
-                <input type="hidden" [(ngModel)]="order.productIds">
-                <input type="hidden" [(ngModel)]="order.quantity">
+                <input type="hidden" name="productIds" [(ngModel)]="order.productIds">
+                <input type="hidden" name="quantity" [(ngModel)]="order.quantity">
 
-            </div>
-            <!-- Which button depends on routing -->
-            <div *ngIf="!details">
-                <button type="submit" [disabled]="!orderForm.form.valid" class="btn btn-success"
+                <!-- Which button depends on routing -->
+                <div *ngIf="!details">
+                    <button type="submit" [disabled]="!orderForm.form.valid" class="btn btn-success"
                     style="float:left;margin-right:5px;">Submit
                     Order</button>
-            </div>
-            <!-- If you are coming from order-details, these buttons-->
-            <div *ngIf="details">
-                <button type="submit" [disabled]="!orderForm.form.valid" class="btn btn-success"
+                </div>
+                <!-- If you are coming from order-details, these buttons-->
+                <div *ngIf="details">
+                    <button type="submit" [disabled]="!orderForm.form.valid" class="btn btn-success"
                     style="float:left;margin-right:5px;">Update Order</button>
+                </div>
+                <button type="button" class="btn btn-danger" routerLink="">Cancel</button>
             </div>
-            <button type="button" class="btn btn-danger" routerLink="">Cancel</button>
         </div>
     </form>
 
@@ -78,7 +78,7 @@
 <!-- Which buttons display depending on routing -->
 <div *ngIf="submitted">
     <h3>Order Submitted!</h3>
-    <button type="button" (click)="newOrder()" class="btn btn-success">New Order</button>
+    <button type="button" (click)="newOrder()" class="btn btn-success" style="margin-right:5px;">New Order</button>
     <button type="button" routerLink="" class="btn btn-primary">Home</button>
 </div>
 <div *ngIf="updated">
