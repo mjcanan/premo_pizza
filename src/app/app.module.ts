@@ -17,6 +17,9 @@ import { EmployeeAddComponent } from './components/employee/employee-add.compone
 import { EmployeeUpdateComponent } from './components/employee/employee-update.component';
 import { EmployeeSalesComponent } from './components/employee-report/employee-sales.component';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { OrderEmpoyeeSalesComponent } from './components/order-employee-report/order-empoyee-sales.component';
+
+
 import { ChartsComponent } from './components/charts/charts.component';
 import { NgxChartsModule } from '@swimlane/ngx-charts';
 import { BrowserAnimationsModule} from '@angular/platform-browser/animations';
@@ -38,6 +41,7 @@ import { BrowserAnimationsModule} from '@angular/platform-browser/animations';
     EmployeeAddComponent,
     EmployeeUpdateComponent,
     EmployeeSalesComponent,
+    OrderEmpoyeeSalesComponent 
     ChartsComponent,
   ],
   imports: [

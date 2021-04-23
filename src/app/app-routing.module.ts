@@ -13,8 +13,12 @@ import { ProductComponent } from './components/product/product.component';
 import {EmployeeListComponent} from './components/employee/employee-list.component';
 import {EmployeeAddComponent} from './components/employee/employee-add.component';
 import { EmployeeUpdateComponent } from './components/employee/employee-update.component';
+<<<<<<< HEAD
+import { OrderEmpoyeeSalesComponent } from './components/order-employee-report/order-empoyee-sales.component';
+=======
 import { EmployeeSalesComponent } from './components/employee-report/employee-sales.component';
 import { ChartsComponent } from './components/charts/charts.component';
+>>>>>>> c9fac1b09fffdbb4849bf38fce185aa2eba6dac3
 
 const routes: Routes = [
   {path: "product", component: ProductComponent},
@@ -29,13 +33,18 @@ const routes: Routes = [
   {path:'customers',component: CustomerListComponent},
   {path: 'customers/:id',component:CustomerDetailsComponent },
   {path:'add',component:AddCustomerComponent},
+<<<<<<< HEAD
+  {path: 'employee-sales',component:OrderEmpoyeeSalesComponent },
+=======
   {path:'employee-sales',component:EmployeeSalesComponent},
   {path:'charts',component:ChartsComponent},
+>>>>>>> c9fac1b09fffdbb4849bf38fce185aa2eba6dac3
   {path:'',redirectTo: 'customers',pathMatch:'full'}
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
+  
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
