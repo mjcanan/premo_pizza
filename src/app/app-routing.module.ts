@@ -14,6 +14,7 @@ import {EmployeeListComponent} from './components/employee/employee-list.compone
 import {EmployeeAddComponent} from './components/employee/employee-add.component';
 import { EmployeeUpdateComponent } from './components/employee/employee-update.component';
 import { EmployeeSalesComponent } from './components/employee-report/employee-sales.component';
+import { ChartsComponent } from './components/charts/charts.component';
 
 const routes: Routes = [
   {path: "product", component: ProductComponent},
@@ -29,6 +30,7 @@ const routes: Routes = [
   {path: 'customers/:id',component:CustomerDetailsComponent },
   {path:'add',component:AddCustomerComponent},
   {path:'employee-sales',component:EmployeeSalesComponent},
+  {path:'charts',component:ChartsComponent},
   {path:'',redirectTo: 'customers',pathMatch:'full'}
 ];
 

@@ -17,7 +17,9 @@ import { EmployeeAddComponent } from './components/employee/employee-add.compone
 import { EmployeeUpdateComponent } from './components/employee/employee-update.component';
 import { EmployeeSalesComponent } from './components/employee-report/employee-sales.component';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
-
+import { ChartsComponent } from './components/charts/charts.component';
+import { NgxChartsModule } from '@swimlane/ngx-charts';
+import { BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 
 
@@ -36,15 +38,16 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
     EmployeeAddComponent,
     EmployeeUpdateComponent,
     EmployeeSalesComponent,
-    
-    
+    ChartsComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    Ng2SearchPipeModule
+    Ng2SearchPipeModule,
+    NgxChartsModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
