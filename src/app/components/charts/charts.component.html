@@ -1,0 +1,27 @@
+<div class="container">
+    <span style="float:left;">
+        <p *ngIf="year == 0" style="float:left;font-size:3em;content-visibility: hidden;">YTD for {{year}}<br>{{ytd | currency }}</p>
+        <p *ngIf="year != 0" style="float:left;font-size:3em;">YTD for {{year}}: {{ytd | currency }}</p>
+    </span>
+    <div style="float:right;">
+        <label for="startDate">From</label>
+        <input type="date" id="startDate" [(ngModel)]="startDate" name="startDate">
+        <label for="endDate">To</label>
+        <input type="date" id="endDate" [(ngModel)]="endDate" name="endDate">
+        <button type="button" class="btn btn-primary" (click)="ordersByEmployeeId()">Load</button>
+    </div>
+    <div>
+    </div>
+    <div style="float:left;" *ngIf="loaded">
+        <div style="float:left;">
+            <ngx-charts-advanced-pie-chart [view]="[1000,300]" [results]="salesData" [gradient]="true"
+            [label]="'Sales By Employee'">
+        </ngx-charts-advanced-pie-chart>
+    </div>
+    </div>
+    <div style="float:left;">
+        <ngx-charts-bar-vertical [view]="[1000,300]" [results]="salesDataZipCode" [xAxisLabel]="'Zipcode'"
+            [legendTitle]="'Sales By Zipcode'" [yAxisLabel]="'Sales In Dollars'" [legend]="true" [showXAxisLabel]="true"
+            [showYAxisLabel]="true" [xAxis]="true" [yAxis]="true" [gradient]="true"></ngx-charts-bar-vertical>
+    </div>
+</div>
