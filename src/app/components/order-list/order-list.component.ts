@@ -9,8 +9,9 @@ import { OrderService } from 'src/app/services/order.service';
 })
 export class OrderListComponent implements OnInit {
   orders : Order[] = [];
-  constructor(private orderService : OrderService) { }
   phonenumber: number;
+  p: number = 1;
+  constructor(private orderService : OrderService) { }
 
   ngOnInit(): void {
     this.retrieveOrders();

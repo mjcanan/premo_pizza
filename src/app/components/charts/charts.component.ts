@@ -31,7 +31,7 @@ export class ChartsComponent implements OnInit {
     });
   }
   ordersByZipcode() {
-    this.salesDataZipCode = [{name:55501,value:0},{name:55502,value:0},{name:55503,value:0},{name:55504,value:0}]
+    this.salesDataZipCode = [{name:"55501",value:0},{name:"55502",value:0},{name:"55503",value:0},{name:"55504",value:0}]
     this.salesDataZipCode = [...this.salesDataZipCode]
     this.orders.forEach((order)=> {
       for (let i = 0; i < this.salesDataZipCode.length; i++){

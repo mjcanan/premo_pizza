@@ -23,6 +23,7 @@ import { OrderEmpoyeeSalesComponent } from './components/order-employee-report/o
 import { ChartsComponent } from './components/charts/charts.component';
 import { NgxChartsModule } from '@swimlane/ngx-charts';
 import { BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 
 
@@ -51,7 +52,8 @@ import { BrowserAnimationsModule} from '@angular/platform-browser/animations';
     FormsModule,
     Ng2SearchPipeModule,
     NgxChartsModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    NgxPaginationModule
   ],
   providers: [],
   bootstrap: [AppComponent]
