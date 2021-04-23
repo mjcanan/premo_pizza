@@ -19,6 +19,10 @@ import { ZipSalesComponent } from './components/zip-report/zip-sales.component';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { ChartsModule } from 'ng2-charts';
 import {DatePipe} from '@angular/common';
+import { OrderEmpoyeeSalesComponent } from './components/order-employee-report/order-empoyee-sales.component';
+import { ChartsComponent } from './components/charts/charts.component';
+import { NgxChartsModule } from '@swimlane/ngx-charts';
+import { BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 
 @NgModule({
@@ -34,18 +38,19 @@ import {DatePipe} from '@angular/common';
     EmployeeListComponent,
     EmployeeAddComponent,
     EmployeeUpdateComponent,
-    ZipSalesComponent
-
-    
-    
+    ZipSalesComponent,
+    OrderEmpoyeeSalesComponent, 
+    ChartsComponent
   ],
+
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
     Ng2SearchPipeModule,
-    ChartsModule
+    NgxChartsModule,
+    BrowserAnimationsModule
   ],
   providers: [DatePipe],
   bootstrap: [AppComponent]

@@ -14,6 +14,9 @@ import {EmployeeListComponent} from './components/employee/employee-list.compone
 import {EmployeeAddComponent} from './components/employee/employee-add.component';
 import { EmployeeUpdateComponent } from './components/employee/employee-update.component';
 import { ZipSalesComponent} from './components/zip-report/zip-sales.component';
+import { EmployeeSalesComponent } from './components/employee-report/employee-sales.component';
+import { ChartsComponent } from './components/charts/charts.component';
+
 const routes: Routes = [
   {path: "product", component: ProductComponent},
   {path:"order", component: OrderComponent},
@@ -28,11 +31,15 @@ const routes: Routes = [
   {path: 'customers/:id',component:CustomerDetailsComponent },
   {path:'add',component:AddCustomerComponent},
   {path:'',redirectTo: 'customers',pathMatch:'full'},
- {path: "zip-report", component: ZipSalesComponent}
+ {path: "zip-report", component: ZipSalesComponent},
+  {path:'employee-sales',component:EmployeeSalesComponent},
+  {path:'charts',component:ChartsComponent},
+  {path:'',redirectTo: 'customers',pathMatch:'full'}
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
+  
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

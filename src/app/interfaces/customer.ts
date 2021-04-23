@@ -1,5 +1,6 @@
 export interface Customer {
-    id: number;
+
+    id:number,
     phonenumber: number,
     name: string,
     address: string,

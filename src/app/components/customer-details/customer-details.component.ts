@@ -22,22 +22,33 @@ export class CustomerDetailsComponent implements OnInit {
 
   ngOnInit(): void {
     this.message = '';
-    //this.getCustomerById(this.route.snapshot.paramMap.get('phonenumber'));
-    this.getCustomerByPhonenumber(this.route.snapshot.paramMap.get('id'));
+    this.getCustomerById(this.route.snapshot.paramMap.get('id'));
+    //this.getCustomerByPhonenumber(this.route.snapshot.paramMap.get('id'));
   }
-
-
-  getCustomerByPhonenumber(id): void {
+  getCustomerById(id): void {
     this.customerService.getCustomerById(id)
-      .subscribe(
-        data => {
-          this.currentCustomer= data;
-          console.log(data);
-        },
-        error => {
-          console.log(error);
-        });
+    .subscribe(
+      data => {
+        this.currentCustomer=data;
+        console.log(data);
+      },
+      error => {
+        console.log(error);
+      });
   }
+
+
+  // getCustomerByPhonenumber(id): void {
+  //   this.customerService.getCustomerById(id)
+  //     .subscribe(
+  //       data => {
+  //         this.currentCustomer= data;
+  //         console.log(data);
+  //       },
+  //       error => {
+  //         console.log(error);
+  //       });
+  // }
   updatecustomer(): void {
     
       this.customerService.update(this.currentCustomer.id, this.currentCustomer)
