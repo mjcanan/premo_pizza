@@ -13,12 +13,22 @@ import { OrderService } from 'src/app/services/order.service';
 export class EmployeeSalesComponent implements OnInit {
   searchTerm: number;
   orders: Order[];
+  allOrders: Order[];
   term: number;
 
   constructor(private orderService: OrderService) { }
 
   ngOnInit(): void {
-    this.orderService.getOrders().subscribe((data: any)=> {this.orders = data})
+    this.orderService.getOrders().subscribe((data: any)=> {
+      this.orders = data;
+      this.allOrders = this.orders;
+    });
   }
+
+  search(value: string): void {
+    // this.orders = this.allOrders.filter((val) => val.dateTime.includes(value));
+  }
+
+
 
 }

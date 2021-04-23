@@ -20,6 +20,9 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { OrderEmpoyeeSalesComponent } from './components/order-employee-report/order-empoyee-sales.component';
 
 
+import { ChartsComponent } from './components/charts/charts.component';
+import { NgxChartsModule } from '@swimlane/ngx-charts';
+import { BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 
 
@@ -39,15 +42,16 @@ import { OrderEmpoyeeSalesComponent } from './components/order-employee-report/o
     EmployeeUpdateComponent,
     EmployeeSalesComponent,
     OrderEmpoyeeSalesComponent 
-    
-    
+    ChartsComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    Ng2SearchPipeModule
+    Ng2SearchPipeModule,
+    NgxChartsModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

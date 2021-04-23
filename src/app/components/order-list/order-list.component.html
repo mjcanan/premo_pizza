@@ -1,27 +1,34 @@
-<div class="searchbar">
-    <input type="text" placeholder="Search by phonenumber" [(ngModel)]="phonenumber"/>
-    <button type="button" (click)="searchOrders()">Search</button>
+<div class="list row">
+    <div class="col-md-8">
+        <div class="input-group mb-3">
+            <input type="text" placeholder="Search by phonenumber" [(ngModel)]="phonenumber" class="form-control" />
+            <div class="input-group-append">
+                <button type="button" class="btn btn-outline-secondary" (click)="searchOrders()">Search</button>
+            </div>
+        </div>
+    </div>
 </div>
 <div>
     <br>
     <table class="table table-striped">
-    <tr>
-        <th>Order ID</th>
-        <th>Phone Number</th>
-        <th>Price Charged</th>
-        <th>Order Date</th>
-        <th>Action</th>
-    </tr>
-    <tr *ngFor="let order of orders">
-        <td>{{order.orderId}}</td>
-        <td>{{order.phonenumber}}</td>
-        <td>{{order.priceCharged | currency}}</td>
-        <td>{{order.dateTime | date}}</td>
-        <td>
-            <button type="button" class="btn btn-warning" routerLink="/order-details/{{order.orderId}}">Edit</button>
-            <button type="button" class="btn btn-danger" (click)="delete(order.orderId)">Delete</button> 
-        </td>
-    </tr>
+        <tr>
+            <th>Order ID</th>
+            <th>Phone Number</th>
+            <th>Price Charged</th>
+            <th>Order Date</th>
+            <th>Action</th>
+        </tr>
+        <tr *ngFor="let order of orders">
+            <td>{{order.orderId}}</td>
+            <td>{{order.phonenumber}}</td>
+            <td>{{order.priceCharged | currency}}</td>
+            <td>{{order.dateTime | date}}</td>
+            <td>
+                <button type="button" class="btn btn-warning"
+                    routerLink="/order-details/{{order.orderId}}">Edit</button>
+                <button type="button" class="btn btn-danger" (click)="delete(order.orderId)">Delete</button>
+            </td>
+        </tr>
 
-</table>
+    </table>
 </div>
