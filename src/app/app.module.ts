@@ -15,11 +15,10 @@ import { OrderListComponent } from './components/order-list/order-list.component
 import { EmployeeListComponent } from './components/employee/employee-list.component';
 import { EmployeeAddComponent } from './components/employee/employee-add.component';
 import { EmployeeUpdateComponent } from './components/employee/employee-update.component';
-import { EmployeeSalesComponent } from './components/employee-report/employee-sales.component';
+import { ZipSalesComponent } from './components/zip-report/zip-sales.component';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
-
-
-
+import { ChartsModule } from 'ng2-charts';
+import {DatePipe} from '@angular/common';
 
 
 @NgModule({
@@ -35,7 +34,8 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
     EmployeeListComponent,
     EmployeeAddComponent,
     EmployeeUpdateComponent,
-    EmployeeSalesComponent,
+    ZipSalesComponent
+
     
     
   ],
@@ -44,9 +44,10 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    Ng2SearchPipeModule
+    Ng2SearchPipeModule,
+    ChartsModule
   ],
-  providers: [],
+  providers: [DatePipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

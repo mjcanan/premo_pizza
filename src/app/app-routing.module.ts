@@ -13,7 +13,7 @@ import { ProductComponent } from './components/product/product.component';
 import {EmployeeListComponent} from './components/employee/employee-list.component';
 import {EmployeeAddComponent} from './components/employee/employee-add.component';
 import { EmployeeUpdateComponent } from './components/employee/employee-update.component';
-
+import { ZipSalesComponent} from './components/zip-report/zip-sales.component';
 const routes: Routes = [
   {path: "product", component: ProductComponent},
   {path:"order", component: OrderComponent},
@@ -27,7 +27,8 @@ const routes: Routes = [
   {path:'customers',component: CustomerListComponent},
   {path: 'customers/:id',component:CustomerDetailsComponent },
   {path:'add',component:AddCustomerComponent},
-  {path:'',redirectTo: 'customers',pathMatch:'full'}
+  {path:'',redirectTo: 'customers',pathMatch:'full'},
+ {path: "zip-report", component: ZipSalesComponent}
 ];
 
 @NgModule({
