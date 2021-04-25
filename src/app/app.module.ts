@@ -15,17 +15,18 @@ import { OrderListComponent } from './components/order-list/order-list.component
 import { EmployeeListComponent } from './components/employee/employee-list.component';
 import { EmployeeAddComponent } from './components/employee/employee-add.component';
 import { EmployeeUpdateComponent } from './components/employee/employee-update.component';
-import { EmployeeSalesComponent } from './components/employee-report/employee-sales.component';
+import { ZipSalesComponent } from './components/zip-report/zip-sales.component';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
+//import { ChartsModule } from 'ng2-charts';
+import {DatePipe} from '@angular/common';
 import { OrderEmpoyeeSalesComponent } from './components/order-employee-report/order-empoyee-sales.component';
 
 import { ReactiveFormsModule } from '@angular/forms';
 //import { ChartsComponent } from './components/charts/charts.component';
+import { ChartsComponent } from './components/charts/charts.component';
 import { NgxChartsModule } from '@swimlane/ngx-charts';
 import { BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { SearchfilterPipe } from './searchfilter.pipe';
-
-
 
 
 @NgModule({
@@ -41,11 +42,15 @@ import { SearchfilterPipe } from './searchfilter.pipe';
     EmployeeListComponent,
     EmployeeAddComponent,
     EmployeeUpdateComponent,
-    EmployeeSalesComponent,
+   // EmployeeSalesComponent,
     OrderEmpoyeeSalesComponent,
     SearchfilterPipe ,
     //ChartsComponent,
+    ZipSalesComponent,
+    OrderEmpoyeeSalesComponent, 
+    ChartsComponent
   ],
+
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -56,7 +61,7 @@ import { SearchfilterPipe } from './searchfilter.pipe';
     BrowserAnimationsModule,
     ReactiveFormsModule
   ],
-  providers: [],
+  providers: [DatePipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

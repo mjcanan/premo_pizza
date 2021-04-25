@@ -25,17 +25,17 @@
         </div>
         
       </form>
-  
+      <br>
       <button
         type="submit"
-        class="badge badge-success"
+        class="btn btn-success"
         (click)="updatecustomer()"
       >
         Update
       </button>
+      <button type="button" class="btn btn-primary" style="margin-left: 5px;" routerLink="">Home</button>
       <p>{{ message }}</p>
     </div>
-    <button type="button"><a routerLink="">Home</a></button>
   
     <div *ngIf="!currentCustomer">
       <br />

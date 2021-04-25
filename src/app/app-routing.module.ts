@@ -16,6 +16,9 @@ import { EmployeeUpdateComponent } from './components/employee/employee-update.c
 import { OrderEmpoyeeSalesComponent } from './components/order-employee-report/order-empoyee-sales.component';
 import { EmployeeSalesComponent } from './components/employee-report/employee-sales.component';
 //import { ChartsComponent } from './components/charts/charts.component';
+import { ZipSalesComponent} from './components/zip-report/zip-sales.component';
+//import { EmployeeSalesComponent } from './components/employee-report/employee-sales.component';
+import { ChartsComponent } from './components/charts/charts.component';
 
 const routes: Routes = [
   {path: "product", component: ProductComponent},
@@ -33,6 +36,10 @@ const routes: Routes = [
   {path:'employee-sales',component:OrderEmpoyeeSalesComponent},
  //{path:'charts',component:ChartsComponent},
   
+  {path:'',redirectTo: 'customers',pathMatch:'full'},
+ {path: "zip-report", component: ZipSalesComponent},
+  {path:'employee-sales',component:EmployeeSalesComponent},
+  {path:'charts',component:ChartsComponent},
   {path:'',redirectTo: 'customers',pathMatch:'full'}
 ];
 

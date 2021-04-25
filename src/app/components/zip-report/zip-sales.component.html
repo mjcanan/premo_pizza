@@ -1,0 +1,63 @@
+<div style =  "border: solid 1px black; padding: 5px; float: left; width: 75%">
+    <div style = "border: solid 1px black; padding: 5px;">
+        <h4 style = "display:inline">Search Sales by Date : </h4>
+        <label for="startdate:  ">Start date</label>
+        <input type="date" id ="startdate" [(ngModel)]= "startdate" name ="startdate">
+        <label for="startdate:  ">Start date</label>
+        <input type="date" id ="enddate" [(ngModel)]= "enddate" name ="enddate">
+        <button type = "button" (click)="filterByDate()"> Submit </button>
+    </div>
+<form class ="wrap">
+    <div class="search">
+        <h4 style = "display:inline">Search Sales by Zip: </h4>
+        <input class="searchTerm" type="text" 
+        name="search"
+        [(ngModel)]= "searchText"
+        placeholder="Search by zip"
+                >
+    </div>
+</form>
+<br>
+
+<!-- <div class="searchbar">
+    <input type="text" placeholder="Search by phonenumber" [(ngModel)]="phonenumber"/>
+    <button type="button" (click)="searchOrders()">Search</button>
+</div> -->
+<div>
+    <br>
+    <table class="table table-striped">
+    <tr>
+        <th>Order Id</th>
+        <th>Zip Code </th>
+        <th>Phone Number</th>
+        <th>Price Charged</th>
+        <th>Order Date</th>
+        <th>Week Number</th>
+        
+    </tr>
+    <tr *ngFor="let item of orders | filter:searchText">
+        <!--<td>{{item.employeeId}}</td>-->
+        <td>{{item.orderId}}</td>
+        <td>{{item.zipcode}}</td>
+        <td>{{item.phonenumber}}</td>
+        <td>{{item.priceCharged | currency}}</td>
+        <td>{{item.dateTime | date }}</td>
+        <td>{{item.dateTime | date:'w'}}</td> 
+      
+    </tr>
+</table>
+</div>
+</div>
+    <div style =  "border: solid 1px black; padding: 20px; float: left; margin:20px">
+        <h4>Totals Report </h4>
+    
+    <button type = "button" (click)="totalSalesByZip()"> Click for Zip Totals: </button>
+<!-- <p> Total Sales: {{sumSales | currency}}</p> -->
+<p> Total Sales 55501 : {{sumSales55501 | currency}} </p>
+<p> Total Sales 55502 : {{sumSales55502 | currency}}</p>
+<p> Total Sales 55503 : {{sumSales55503 | currency}}</p>
+<p> Total Sales 55504 : {{sumSales55504 | currency}}</p>
+<button type = "button" (click)="totalSales()">Click for Grand Total: </button>
+<p>Grand total : {{sumSales | currency}}</p>
+
+</div>

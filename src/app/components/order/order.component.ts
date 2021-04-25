@@ -88,6 +88,9 @@ export class OrderComponent implements OnInit {
       this.order.priceCharged = sum - this.order.discount;
   }
   submit() {
+    if (this.order.discount == null){
+      this.order.discount = 0;
+    }
     if (this.details){
       this.update();
     } else {
