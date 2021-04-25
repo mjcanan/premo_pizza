@@ -19,10 +19,11 @@ import { EmployeeSalesComponent } from './components/employee-report/employee-sa
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { OrderEmpoyeeSalesComponent } from './components/order-employee-report/order-empoyee-sales.component';
 
-
-import { ChartsComponent } from './components/charts/charts.component';
+import { ReactiveFormsModule } from '@angular/forms';
+//import { ChartsComponent } from './components/charts/charts.component';
 import { NgxChartsModule } from '@swimlane/ngx-charts';
 import { BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { SearchfilterPipe } from './searchfilter.pipe';
 
 
 
@@ -41,8 +42,9 @@ import { BrowserAnimationsModule} from '@angular/platform-browser/animations';
     EmployeeAddComponent,
     EmployeeUpdateComponent,
     EmployeeSalesComponent,
-    OrderEmpoyeeSalesComponent 
-    ChartsComponent,
+    OrderEmpoyeeSalesComponent,
+    SearchfilterPipe ,
+    //ChartsComponent,
   ],
   imports: [
     BrowserModule,
@@ -51,7 +53,8 @@ import { BrowserAnimationsModule} from '@angular/platform-browser/animations';
     FormsModule,
     Ng2SearchPipeModule,
     NgxChartsModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

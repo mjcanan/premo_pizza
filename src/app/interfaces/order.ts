@@ -8,5 +8,6 @@ export interface Order {
     quantity: number
     priceCharged: number
     zipcode:number
+   
 
 }

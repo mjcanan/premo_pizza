@@ -28,16 +28,19 @@
         <input type="text" placeholder="ordersTotal" [(ngModel)]="ordersTotal"/>
           <button type="button" (click)="employeeSales()">Total Sales</button>    
         <br> <br>
-        <!-- <!-- <input type="text" placeholder="Search by employeeid" [(ngModel)]="week"/>
-         <label> Total Sales by Employee</label><br>
-         <br><br> -->
-         <div>
-         Search: <input type="text" placeholder="Search by week" [(ngModel)]="searchTerm" />
+        
+          
+          <div >
+            <label for="search" >Search</label>
+            <input type="text"  [(ngModel)]="searchValue"  id="search" />
+          </div> 
         </div> 
- 
-      </div>
-      <div>
+        
+      
+
+    <div>
     <br>
+    
      <table class="table table-striped">
         <tr>
             <th>Order ID</th>
@@ -48,16 +51,17 @@
             <th>Week Number</th>
         </tr>  
         
-         <tr *ngFor="let order of orders | filter : searchTerm">
+         <tr *ngFor="let order of ordersearch | searchfilter : searchValue">
             <td>{{order.orderId}}</td>
             <td>{{order.employeeId}}</td>
             <td>{{order.phonenumber}}</td>
             <td>{{order.priceCharged | currency}}</td>
             <td>{{order.dateTime | date}} </td>
-            <td>{{order.dateTime |date :  "w" }}</td>
+            <td>{{order.dateTime | date : "w"}}</td>
             
         
         </tr>
      </table>
+   
      </div>             
       
