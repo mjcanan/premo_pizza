@@ -13,14 +13,14 @@ import { OrderService } from 'src/app/services/order.service';
 export class ChartsComponent implements OnInit {
 
   //TODO: Dynamically load employees
+  orders: Order[];
   salesData: SalesDataChart[];
   salesDataZipCode: SalesDataChart[];
-  orders: Order[];
-  ytd: number;
   startDate: Date;
   endDate: Date;
-  loaded: boolean = false;
   year: number = 0;
+  ytd: number;
+  loaded: boolean = false;
 
   constructor(private orderService: OrderService) { }
 
@@ -30,6 +30,23 @@ export class ChartsComponent implements OnInit {
       this.ordersByEmployeeId();
     });
   }
+  
+  ordersByEmployeeId() {
+    this.salesData = [{name:1,value:0},{name:2,value:0},{name:3,value:0}]
+    this.salesData = [...this.salesData]
+    this.orders.forEach((order)=> {
+      for (let i = 0; i < this.salesData.length; i++){
+        if (this.salesData[i].name == order.employeeId &&
+          order.dateTime >= this.startDate && order.dateTime <= this.endDate) {
+            this.salesData[i].value += order.priceCharged;
+          }
+        }
+      });
+      this.salesData = [...this.salesData];
+      this.ordersByZipcode();
+      this.yearToDate();
+    }
+    
   ordersByZipcode() {
     this.salesDataZipCode = [{name:"55501",value:0},{name:"55502",value:0},{name:"55503",value:0},{name:"55504",value:0}]
     this.salesDataZipCode = [...this.salesDataZipCode]
@@ -43,23 +60,7 @@ export class ChartsComponent implements OnInit {
       });
       this.salesDataZipCode = [...this.salesDataZipCode];
       this.loaded = true;
-
-  }
-
-  ordersByEmployeeId() {
-      this.salesData = [{name:1,value:0},{name:2,value:0},{name:3,value:0}]
-      this.salesData = [...this.salesData]
-      this.orders.forEach((order)=> {
-        for (let i = 0; i < this.salesData.length; i++){
-          if (this.salesData[i].name == order.employeeId &&
-            order.dateTime >= this.startDate && order.dateTime <= this.endDate) {
-            this.salesData[i].value += order.priceCharged;
-          }
-        }
-      });
-      this.salesData = [...this.salesData];
-      this.ordersByZipcode();
-      this.yearToDate();
+  
   }
 
   yearToDate() {
@@ -74,9 +75,5 @@ export class ChartsComponent implements OnInit {
     this.year = new Date(this.startDate).getFullYear();
     }
   }
-
-
-
-
 
 }
