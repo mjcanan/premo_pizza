@@ -67,7 +67,7 @@ import { ImageComponent } from './components/image/image.component';
     BrowserAnimationsModule,
     ReactiveFormsModule,
     
-    NgxPaginationModule
+   NgxPaginationModule
   ],
   providers: [DatePipe],
   bootstrap: [AppComponent]
