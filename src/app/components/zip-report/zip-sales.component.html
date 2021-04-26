@@ -3,10 +3,12 @@
         <h4 style = "display:inline">Search Sales by Date : </h4>
         <label for="startdate:  ">Start date</label>
         <input type="date" id ="startdate" [(ngModel)]= "startdate" name ="startdate">
-        <label for="startdate:  ">Start date</label>
+        <label for="startdate:  ">End date</label>
         <input type="date" id ="enddate" [(ngModel)]= "enddate" name ="enddate">
         <button type = "button" (click)="filterByDate()"> Submit </button>
-    </div>
+        <button type="button" (click)="getOrdersAll()">Clear Dates</button>
+        </div>
+        
 <form class ="wrap">
     <div class="search">
         <h4 style = "display:inline">Search Sales by Zip: </h4>
@@ -35,7 +37,7 @@
         <th>Week Number</th>
         
     </tr>
-    <tr *ngFor="let item of orders | filter:searchText">
+    <tr *ngFor="let item of orders | filter:searchText |paginate: { itemsPerPage: 8, currentPage: p}">
         <!--<td>{{item.employeeId}}</td>-->
         <td>{{item.orderId}}</td>
         <td>{{item.zipcode}}</td>
@@ -46,10 +48,12 @@
       
     </tr>
 </table>
+<pagination-controls (pageChange)="p = $event"></pagination-controls>
 </div>
 </div>
     <div style =  "border: solid 1px black; padding: 20px; float: left; margin:20px">
-        <h4>Totals Report </h4>
+        <h4>Totals Report <br/> Date Range</h4>
+        <br/>
     
     <button type = "button" (click)="totalSalesByZip()"> Click for Zip Totals: </button>
 <!-- <p> Total Sales: {{sumSales | currency}}</p> -->

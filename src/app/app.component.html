@@ -9,21 +9,54 @@
 <div>
   <!-- <nav class="navbar navbar-expand navbar-dark bg-dark"> -->
     <nav class="navbar navbar-expand navbar-dark bg-primary">
+
+
+<div>
+
+  <nav class="navbar navbar-expand navbar-dark bg-dark">
     <a href="#" class="navbar-brand">PremoPizza</a>
     <div class="navbar-nav mr-auto">
-      <li class="nav-item">
-        <a routerLink="customers" class="nav-link">Search Customer</a>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" (click)="showDropdown(1)"  style="cursor:pointer;">Customers</a>
+        <ul class="dropdown-menu" [ngClass]="{'show':toggleCustomer}"  style="background-color: #343a40;" >
+            <li class="nav-item">
+              <a class="nav-link" routerLink="customers"[ngClass]="{'show':toggleCustomer}" (click)="showDropdown(1)">Search Customers</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" routerLink="add" [ngClass]="{'show':toggleCustomer}" (click)="showDropdown(1)">Add New Customer</a>
+            </li>
+        </ul>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" (click)="showDropdown(2)" style="cursor:pointer;">Employees</a>
+        <ul class="dropdown-menu" [ngClass]="{'show':toggleEmployee}" style="background-color: #343a40;">
+          <li class="nav-item">
+            <a class="nav-link" routerLink="employee-add"[ngClass]="{'show':toggleEmployee}" (click)="showDropdown(2)">Add Employee</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="employee-list" [ngClass]="{'show':toggleEmployee}" (click)="showDropdown(2)">Employee List</a>
+          </li>
+        </ul>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" (click)="showDropdown(3)" style="cursor:pointer;">Reports</a>
+        <ul class="dropdown-menu" [ngClass]="{'show':toggleReports}" style="background-color: #343a40;">
+          <li class="nav-item">
+            <a class="nav-link" routerLink="employee-sales"[ngClass]="{'show':toggleReports}" (click)="showDropdown(3)">Employee Sales</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="zip-report" [ngClass]="{'show':toggleReports}" (click)="showDropdown(3)">Zipcode Sales</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="charts" [ngClass]="{'show':toggleReports}" (click)="showDropdown(3)">Charts</a>
+          </li>
+        </ul>
       </li>
       <li class="nav-item">
-        <a routerLink="add" class="nav-link">Add Customer</a>
-      </li>
-      <li class="nav-item">
-        <a routerLink="order-list" class="nav-link">Order List</a>
-      </li>
-      <li class="nav-item">
-        <a routerLink="order" class="nav-link">New Order</a>
+        <a routerLink="order-list" class="nav-link" (click)="showDropdown(4)">All Orders</a>
       </li>
       <li>
+<<<<<<< HEAD
         <a routerLink="employee-list" class="nav-link">Employee List</a>
       </li>
       <li>
@@ -36,13 +69,25 @@
       </li>
       <li class="nav-item">
         <a routerLink="zip-report" class="nav-link">Sales by Zip</a>
+=======
+        <a routerLink="product" class="nav-link" (click)="showDropdown(4)">Menu</a>
+>>>>>>> 2ace5c505cfa2890a02ae9ef803a0b11edfad94f
       </li>
     </div>
   </nav>
+<div>
 
-  <div class="container mt-3">
-    <router-outlet></router-outlet>
-  </div>
+
 </div>
+<div class="container mt-3">
+  <router-outlet></router-outlet>
+</div>
+<app-image></app-image>
+</div>
+
+
+
+
+  
 
 

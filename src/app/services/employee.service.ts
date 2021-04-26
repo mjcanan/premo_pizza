@@ -9,17 +9,17 @@ import { Employee } from '../interfaces/employee';
   providedIn: 'root'
 })
 export class EmployeeService {
-  private baseUrl = 'http://localhost:8081/employee';
+  private baseUrl = 'http://localhost:8080/employee';
 
   constructor(private httpClient: HttpClient) { }
 
   getEmployees():Observable<any> {
-    return this.httpClient.get("http://localhost:8081/employee");
+    return this.httpClient.get("http://localhost:8080/employee");
   }
 
   postEmployee(employee: Object): Observable<Object>{
     
-    return this.httpClient.post("http://localhost:8081/employeeadd", employee);
+    return this.httpClient.post("http://localhost:8080/employeeadd", employee);
   }
 
 
