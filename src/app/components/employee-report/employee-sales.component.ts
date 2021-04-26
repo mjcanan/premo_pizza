@@ -9,6 +9,7 @@ import { OrderService } from 'src/app/services/order.service';
   selector: 'app-employee-sales',
   templateUrl: './employee-sales.component.html',
   //styleUrls: ['./employee-sales.component.css']
+ 
 })
 export class EmployeeSalesComponent implements OnInit {
   searchTerm: number;

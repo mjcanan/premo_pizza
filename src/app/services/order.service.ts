@@ -28,14 +28,14 @@ export class OrderService {
     return this.httpClient.get(`http://localhost:8080/order/${employeeID}`)
   }
   public getOrdersByPhonenumber(phonenumber){
-    return this.httpClient.get(`http://localhost:8081/order-list/${phonenumber}`)
+    return this.httpClient.get(`http://localhost:8080/order-list/${phonenumber}`)
   }
 
   public updateOrder(id, data) {
-    return this.httpClient.put(`http://localhost:8081/order-details/${id}`, data);
+    return this.httpClient.put(`http://localhost:8080/order-details/${id}`, data);
   }
 
   public deleteOrder(id){
-    return this.httpClient.delete(`http://localhost:8081/order-list/${id}`)
+    return this.httpClient.delete(`http://localhost:8080/order-list/${id}`)
   }
 }

@@ -1,4 +1,4 @@
 export interface SalesDataChart {
-    name:number,
+    name:any,
     value:number
 }

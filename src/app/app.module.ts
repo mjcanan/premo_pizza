@@ -17,13 +17,14 @@ import { EmployeeAddComponent } from './components/employee/employee-add.compone
 import { EmployeeUpdateComponent } from './components/employee/employee-update.component';
 import { ZipSalesComponent } from './components/zip-report/zip-sales.component';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
-import { ChartsModule } from 'ng2-charts';
 import {DatePipe} from '@angular/common';
 import { OrderEmpoyeeSalesComponent } from './components/order-employee-report/order-empoyee-sales.component';
 import { ChartsComponent } from './components/charts/charts.component';
 import { NgxChartsModule } from '@swimlane/ngx-charts';
 import { BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {EmployeeSalesComponent} from './components/employee-report/employee-sales.component';
+import { NgxPaginationModule } from 'ngx-pagination';
+
 
 @NgModule({
   declarations: [
@@ -51,7 +52,8 @@ import {EmployeeSalesComponent} from './components/employee-report/employee-sale
     FormsModule,
     Ng2SearchPipeModule,
     NgxChartsModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    NgxPaginationModule
   ],
   providers: [DatePipe],
   bootstrap: [AppComponent]

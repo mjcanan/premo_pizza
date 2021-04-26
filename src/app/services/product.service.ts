@@ -9,6 +9,6 @@ export class ProductService {
   constructor(private httpClient: HttpClient) { }
 
   public sendGetRequest() {
-    return this.httpClient.get("http://localhost:8081/products");
+    return this.httpClient.get("http://localhost:8080/products");
   }
 }

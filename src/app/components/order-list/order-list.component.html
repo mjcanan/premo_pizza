@@ -18,7 +18,7 @@
             <th>Order Date</th>
             <th>Action</th>
         </tr>
-        <tr *ngFor="let order of orders">
+        <tr *ngFor="let order of orders | paginate: { itemsPerPage: 8, currentPage: p}">
             <td>{{order.orderId}}</td>
             <td>{{order.phonenumber}}</td>
             <td>{{order.priceCharged | currency}}</td>
@@ -31,4 +31,5 @@
         </tr>
 
     </table>
+    <pagination-controls (pageChange)="p = $event"></pagination-controls>
 </div>
