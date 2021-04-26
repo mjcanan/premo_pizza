@@ -1,5 +1,6 @@
 <div class="container">
     <span style="float:left;">
+        <!-- Only display YTD when a year is chosen in the date picker -->
         <p *ngIf="year == 0" style="float:left;font-size:3em;content-visibility: hidden;">YTD for {{year}}<br>{{ytd | currency }}</p>
         <p *ngIf="year != 0" style="float:left;font-size:3em;">YTD for {{year}}: {{ytd | currency }}</p>
     </span>

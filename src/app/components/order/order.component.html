@@ -1,6 +1,6 @@
 <div *ngIf="!submitted && !updated">
     <!-- TODO: CSS instead of inline styling -->
-    <div class="itemized-order" style="float:right;width:33%;">
+    <div class="itemized-order">
         <table class="table table-striped">
             <tr *ngFor="let id of order.productIds; let i = index;">
                 <td class="delete_col">
@@ -12,12 +12,11 @@
                 <td class="description_col">{{products[id-1].description}}</td>
                 <td class="price_col">{{products[id-1].price | currency}}</td>
             </tr>
-
         </table>
     </div>
 
     <form (ngSubmit)="submit()" #orderForm="ngForm" validate>
-        <div class="input-group mb-3" style="float:left;width:32%;">
+        <div id="order-info" class="input-group mb-3">
             <div>
                 <label for="phonenumber">Phone Number</label>
                 <input type="text" class="form-control" id="phonenumber" required [(ngModel)]="order.phonenumber"
@@ -37,13 +36,6 @@
                 <input type="text" id="zipcode" class="form-control" required [(ngModel)]="order.zipcode" name="zipcode"
                     #name="ngModel" pattern="\d*" title="Numbers only"/>
                 <br>
-                <!--TODO: make this a select drop down box -- FIX: autopopulate not working for select statement-->
-                <!-- <select name="zipcode" class="browser-default custom-select" id="zipcode" [(ngModel)]="order.zipcode">
-                <option value="55501">55501</option>
-                <option value="55502">55502</option>
-                <option value="55503">55503</option>
-                <option value="55504">55504</option>
-            </select>    -->
 
                 <input type="hidden" name="productIds" [(ngModel)]="order.productIds">
                 <input type="hidden" name="quantity" [(ngModel)]="order.quantity">

@@ -11,3 +11,13 @@
     text-align: center;
     
 }
+
+.itemized-order {
+    float:right;
+    width:33%;
+}
+
+#order-info {
+    float:left;
+    width:32%;
+}
