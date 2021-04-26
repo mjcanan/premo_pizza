@@ -28,7 +28,7 @@ import { NgxChartsModule } from '@swimlane/ngx-charts';
 import { BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { SearchfilterPipe } from './searchfilter.pipe';
 import {EmployeeSalesComponent} from './components/employee-report/employee-sales.component';
-//import { NgxPaginationModule } from 'ngx-pagination';
+import { NgxPaginationModule } from 'ngx-pagination';
 import { ImageComponent } from './components/image/image.component';
 
 
@@ -67,7 +67,7 @@ import { ImageComponent } from './components/image/image.component';
     BrowserAnimationsModule,
     ReactiveFormsModule,
     
-   // NgxPaginationModule
+   NgxPaginationModule
   ],
   providers: [DatePipe],
   bootstrap: [AppComponent]
