@@ -1,63 +1,38 @@
 
-<!-- <div class="list row">
-    <div class="col-md-8">
-      <div class="input-group mb-3">
-        <input
-          type="text"
-          class="form-control"
-          placeholder="Search by Employee ID"
-          [(ngModel)]="employeeID"
-        />
-        <div class="input-group-append">
-          <button
-            class="btn btn-outline-secondary"
-            type="button"
-            (click)="searchEmployees()"
-          >
-            Search
-          </button>
-        </div>
-      </div>
-    </div> -->
 
-    
-      <div class="searchbar"> 
+      <div class="searchbar" style = "float:left"> 
         <input type="text" placeholder="Search by employeeid" [(ngModel)]="employeeID"/>
         <button type="button" (click)="searchEmployees()">Search by Employee</button>
-        <br><br>
+        <br>
         <input type="text" placeholder="ordersTotal" [(ngModel)]="ordersTotal"/>
           <button type="button" (click)="employeeSales()">Total Sales</button>    
         <br> <br>
-        <!-- <!-- <input type="text" placeholder="Search by employeeid" [(ngModel)]="week"/>
-         <label> Total Sales by Employee</label><br>
-         <br><br> -->
-         <div>
-         Search: <input type="text" placeholder="Search by week" [(ngModel)]="searchTerm" />
-        </div> 
- 
       </div>
-      <div>
-    <br>
+        <div style="float:right;">
+        <input type="text"    placeholder="week number"  [(ngModel)]="searchValue" /> 
+        <input type="text" placeholder="weekTotal" [(ngModel)]="weeksum"/>
+         <button type="button" (click)="salesByWeek(searchValue)">Weekly Sales</button> 
+      </div>
+    
+    <div>
+    <br>    
      <table class="table table-striped">
         <tr>
             <th>Order ID</th>
             <th>Employee ID</th>
             <th>Phone Number</th>
             <th>Price Charged</th>
-            <th>Order Date</th>
-            <th>Week Number</th>
-        </tr>  
-        
-         <tr *ngFor="let order of orders | filter : searchTerm">
+            <th>Date</th>
+            <th>Week Number</th>           
+        </tr>         
+         <tr *ngFor="let order of ordersearch | searchfilter : searchValue">
             <td>{{order.orderId}}</td>
             <td>{{order.employeeId}}</td>
             <td>{{order.phonenumber}}</td>
             <td>{{order.priceCharged | currency}}</td>
-            <td>{{order.dateTime | date}} </td>
-            <td>{{order.dateTime |date :  "w" }}</td>
-            
-        
-        </tr>
-     </table>
-     </div>             
-      
+            <td>{{order.dateTime | date }} </td>
+            <td>{{order.dateTime }}</td>  
+          </tr>
+</table>  
+   
+

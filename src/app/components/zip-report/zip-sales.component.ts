@@ -12,6 +12,7 @@ import { jitOnlyGuardedExpression } from '@angular/compiler/src/render3/util';
 export class ZipSalesComponent implements OnInit {
   searchText: string;
   orders: Order[];
+  p: number =1;
   filterOrder : Order[];
   ordersPipe : {
     orderId: number

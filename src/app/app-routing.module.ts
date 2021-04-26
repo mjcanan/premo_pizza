@@ -10,7 +10,15 @@ import { ProductComponent } from './components/product/product.component';
 import {EmployeeListComponent} from './components/employee/employee-list.component';
 import {EmployeeAddComponent} from './components/employee/employee-add.component';
 import { EmployeeUpdateComponent } from './components/employee/employee-update.component';
+<<<<<<< HEAD
+import { OrderEmpoyeeSalesComponent } from './components/order-employee-report/order-empoyee-sales.component';
+import { EmployeeSalesComponent } from './components/employee-report/employee-sales.component';
+//import { ChartsComponent } from './components/charts/charts.component';
 import { ZipSalesComponent} from './components/zip-report/zip-sales.component';
+//import { EmployeeSalesComponent } from './components/employee-report/employee-sales.component';
+=======
+import { ZipSalesComponent} from './components/zip-report/zip-sales.component';
+>>>>>>> 2ace5c505cfa2890a02ae9ef803a0b11edfad94f
 import { ChartsComponent } from './components/charts/charts.component';
 import { OrderEmpoyeeSalesComponent } from './components/order-employee-report/order-empoyee-sales.component';
 
@@ -27,6 +35,13 @@ const routes: Routes = [
   {path:'customers',component: CustomerListComponent},
   {path: 'customers/:id',component:CustomerDetailsComponent },
   {path:'add',component:AddCustomerComponent},
+<<<<<<< HEAD
+  {path:'employee-sales',component:OrderEmpoyeeSalesComponent},
+ //{path:'charts',component:ChartsComponent},
+  
+  {path:'',redirectTo: 'customers',pathMatch:'full'},
+=======
+>>>>>>> 2ace5c505cfa2890a02ae9ef803a0b11edfad94f
  {path: "zip-report", component: ZipSalesComponent},
   {path:'employee-sales',component:OrderEmpoyeeSalesComponent},
   {path:'charts',component:ChartsComponent},
