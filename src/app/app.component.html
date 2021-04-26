@@ -1,53 +1,67 @@
+
+
 <div>
+
   <nav class="navbar navbar-expand navbar-dark bg-dark">
     <a href="#" class="navbar-brand">PremoPizza</a>
     <div class="navbar-nav mr-auto">
-      <li class="nav-item">
-        <a routerLink="customers" class="nav-link">Search Customer</a>
-      </li>
-      <li class="nav-item">
-        <a routerLink="add" class="nav-link">Add Customer</a>
-      </li>
-      <li class="nav-item">
-        <a routerLink="order-list" class="nav-link">Order List</a>
-      </li>
-      <li class="nav-item">
-        <a routerLink="order" class="nav-link">New Order</a>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" (click)="showDropdown(1)"  style="cursor:pointer;">Customers</a>
+        <ul class="dropdown-menu" [ngClass]="{'show':toggleCustomer}"  style="background-color: #343a40;" >
+            <li class="nav-item">
+              <a class="nav-link" routerLink="customers"[ngClass]="{'show':toggleCustomer}" (click)="showDropdown(1)">Search Customers</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" routerLink="add" [ngClass]="{'show':toggleCustomer}" (click)="showDropdown(1)">Add New Customer</a>
+            </li>
+        </ul>
       </li>
       <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" data-toggle="dropdown" (click)="showDropdown()">Employees</a>
-        <ul class="dropdown-menu" [ngClass]="{'show':toggleFlag}" style="background-color: #363636">
+        <a class="nav-link dropdown-toggle" (click)="showDropdown(2)" style="cursor:pointer;">Employees</a>
+        <ul class="dropdown-menu" [ngClass]="{'show':toggleEmployee}" style="background-color: #343a40;">
           <li class="nav-item">
-            <a class="nav-link" routerLink="employee-add"[ngClass]="{'show':toggleFlag}" (click)="showDropdown()">Add Employee</a>
+            <a class="nav-link" routerLink="employee-add"[ngClass]="{'show':toggleEmployee}" (click)="showDropdown(2)">Add Employee</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" routerLink="employee-list" [ngClass]="{'show':toggleFlag}" (click)="showDropdown()">Employee List</a>
+            <a class="nav-link" routerLink="employee-list" [ngClass]="{'show':toggleEmployee}" (click)="showDropdown(2)">Employee List</a>
           </li>
         </ul>
       </li>
-      <li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" (click)="showDropdown(3)" style="cursor:pointer;">Reports</a>
+        <ul class="dropdown-menu" [ngClass]="{'show':toggleReports}" style="background-color: #343a40;">
+          <li class="nav-item">
+            <a class="nav-link" routerLink="employee-sales"[ngClass]="{'show':toggleReports}" (click)="showDropdown(3)">Employee Sales</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="zip-report" [ngClass]="{'show':toggleReports}" (click)="showDropdown(3)">Zipcode Sales</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="charts" [ngClass]="{'show':toggleReports}" (click)="showDropdown(3)">Charts</a>
+          </li>
+        </ul>
+      </li>
+      <li class="nav-item">
+        <a routerLink="order-list" class="nav-link">All Orders</a>
       </li>
       <li>
         <a routerLink="product" class="nav-link">Menu</a>
       </li>
-      <li>
-        <a routerLink="employee-sales" class="nav-link">Sales Report</a>
-      </li>
-      <li>
-        <a routerLink="charts" class="nav-link">Charts</a>
-      </li>
-      <li class="nav-item">
-        <a routerLink="zip-report" class="nav-link">Sales by Zip</a>
-        
-      </li>
     </div>
   </nav>
+<div>
 
-  <div class="container mt-3">
-    <router-outlet></router-outlet>
-  </div>
-  <img src ="assets\PNGIX.com_guy-png_357743.png" class="img-fluid" style = "width:500px; height: 600px; float: left"alt="pizza guy">
-  <img src ="assets\PNGIX.com_guy-png_357743.png" class="img-fluid" style = "width:500px; height: 600px; float: right; transform: scaleX(-1)"alt="pizza guy">
+
 </div>
+<div class="container mt-3">
+  <router-outlet></router-outlet>
+</div>
+<app-image></app-image>
+</div>
+
+
+
+
+  
 
 

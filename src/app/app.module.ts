@@ -24,6 +24,7 @@ import { NgxChartsModule } from '@swimlane/ngx-charts';
 import { BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {EmployeeSalesComponent} from './components/employee-report/employee-sales.component';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { ImageComponent } from './components/image/image.component';
 
 
 @NgModule({
@@ -42,7 +43,9 @@ import { NgxPaginationModule } from 'ngx-pagination';
     ZipSalesComponent,
     OrderEmpoyeeSalesComponent, 
     EmployeeSalesComponent,
-    ChartsComponent
+    ChartsComponent,
+    ImageComponent,
+    
   ],
 
   imports: [
