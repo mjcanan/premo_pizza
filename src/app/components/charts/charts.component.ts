@@ -14,6 +14,7 @@ export class ChartsComponent implements OnInit {
 
   //TODO: Dynamically load employees
   orders: Order[];
+  employees: Employee[];
   salesData: SalesDataChart[];
   salesDataZipCode: SalesDataChart[];
   startDate: Date;
@@ -21,19 +22,27 @@ export class ChartsComponent implements OnInit {
   year: number = 0;
   ytd: number;
   loaded: boolean = false;
+  employeesLoaded: boolean = false;;
 
-  constructor(private orderService: OrderService) { }
+  constructor(private orderService: OrderService, 
+              private employeeService: EmployeeService) { }
 
   ngOnInit(): void {
+
     this.orderService.getOrders().subscribe((data:any[])=>{
       this.orders = data;
       this.ordersByEmployeeId();
     });
+    this.employeeService.getEmployees().subscribe((data:any[]) =>{
+      this.employees = data;
+      this.employeesLoaded = true;
+    });
+    
   }
   
   ordersByEmployeeId() {
-    this.salesData = [{name:1,value:0},{name:2,value:0},{name:3,value:0}]
-    this.salesData = [...this.salesData]
+    this.salesData = [{name:1,value:0},{name:2,value:0},{name:3,value:0}];
+    this.salesData = [...this.salesData];
     this.orders.forEach((order)=> {
       for (let i = 0; i < this.salesData.length; i++){
         if (this.salesData[i].name == order.employeeId &&
@@ -45,11 +54,24 @@ export class ChartsComponent implements OnInit {
       this.salesData = [...this.salesData];
       this.ordersByZipcode();
       this.yearToDate();
+      this.getEmployeeNames();
     }
+
+  getEmployeeNames() {
+    if (this.employeesLoaded && this.loaded){
+      this.salesData.forEach((data) => {
+        for (let i = 0; i < this.employees.length; i++){
+          if (data.name == this.employees[i].employeeid){
+            data.name = this.employees[i].employee_name;
+          }
+        }
+      });
+    }
+  }
     
   ordersByZipcode() {
-    this.salesDataZipCode = [{name:"55501",value:0},{name:"55502",value:0},{name:"55503",value:0},{name:"55504",value:0}]
-    this.salesDataZipCode = [...this.salesDataZipCode]
+    this.salesDataZipCode = [{name:"55501",value:0},{name:"55502",value:0},{name:"55503",value:0},{name:"55504",value:0}];
+    this.salesDataZipCode = [...this.salesDataZipCode];
     this.orders.forEach((order)=> {
       for (let i = 0; i < this.salesDataZipCode.length; i++){
         if (this.salesDataZipCode[i].name == order.zipcode &&
