@@ -3,9 +3,6 @@ import { RouterModule, Routes } from '@angular/router';
 import { AddCustomerComponent } from './components/add-customer/add-customer.component';
 import { CustomerDetailsComponent } from './components/customer-details/customer-details.component';
 import { CustomerListComponent } from './components/customer-list/customer-list.component';
-
-
-
 import { OrderDetailsComponent } from './components/order-details/order-details.component';
 import { OrderListComponent } from './components/order-list/order-list.component';
 import { OrderComponent } from './components/order/order.component';

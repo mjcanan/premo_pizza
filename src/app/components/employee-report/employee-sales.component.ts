@@ -8,7 +8,8 @@ import { OrderService } from 'src/app/services/order.service';
 @Component({
   selector: 'app-employee-sales',
   templateUrl: './employee-sales.component.html',
-  styleUrls: []
+  //styleUrls: ['./employee-sales.component.css']
+ 
 })
 export class EmployeeSalesComponent implements OnInit {
   searchTerm: number;
