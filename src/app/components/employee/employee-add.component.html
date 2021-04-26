@@ -5,11 +5,13 @@
         <label>ID</label>
         <input type ="text" class = "form-control" id="employeeid" 
         [(ngModel)] = "employee.employeeid" name = "employeeid" #name="ngModel" required>
+        
     </div>
     <div>
         <label>Name</label>
         <input type ="text" class = "form-control" id="employee_name" 
         [(ngModel)] = "employee.employee_name" name = "employee_name" #name="ngModel" required>
+        
     </div>
     <div>
         <label>Address</label>
@@ -26,12 +28,21 @@
         <input type ="text" class = "form-control" id="hours_worked" 
         [(ngModel)] = "employee.hours_worked" name = "hours_worked" #name="ngModel">
     </div>
-    <div>
+    <!-- <div>
         <label>Status</label>
         <input type ="text" class = "form-control" id="status" 
         [(ngModel)] = "employee.status" name = "status" #name="ngModel" required>
+    </div> -->
+    <div class="form-group">
+        <label for="status">
+            Status
+        </label>
+        <select id="status" name = "status"
+        [(ngModel)]="employee.status" class="form-control" required>
+        <option value = true>Active</option>
+        <option value = false>Inactive</option>
+        </select>
     </div>
-    <br>
     <br>
     <button class = "btn btn-success" type = "submit" [disabled]="!employeeForm.form.valid">Submit</button>
 </form>

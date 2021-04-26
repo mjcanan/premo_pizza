@@ -23,7 +23,7 @@ import { OrderEmpoyeeSalesComponent } from './components/order-employee-report/o
 import { ChartsComponent } from './components/charts/charts.component';
 import { NgxChartsModule } from '@swimlane/ngx-charts';
 import { BrowserAnimationsModule} from '@angular/platform-browser/animations';
-
+import {EmployeeSalesComponent} from './components/employee-report/employee-sales.component';
 
 @NgModule({
   declarations: [
@@ -40,6 +40,7 @@ import { BrowserAnimationsModule} from '@angular/platform-browser/animations';
     EmployeeUpdateComponent,
     ZipSalesComponent,
     OrderEmpoyeeSalesComponent, 
+    EmployeeSalesComponent,
     ChartsComponent
   ],
 
