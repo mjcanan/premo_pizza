@@ -18,14 +18,28 @@ export class CustomerListComponent implements OnInit {
   currentCustomer : Customer ;
   message = '';
 
-
+ public errorApi = false;
 
   constructor(private customerService: CustomerService,
     private router: Router) { }
 
-  ngOnInit(): void {
-    
+    ngOnInit(): void {
+//       this.service.getIncidents(this.phonenumber).subscribe(
+//      (success) => {
+//         this.loading = true;
+//         this.data = success.result;
+//         this.loading = false;
+//         //console.log('Result - ', );
+//         console.log('data is received');
+//       },
+//      (error) => {
+//        this.errorApi = true;
+//        console.log('Error state from API:', error)}
+
+// )
       }
+  
+
 
   searchPhonenumber(): void {
     this.customerService.getCustomerByPhonenumber(this.phonenumber) 
