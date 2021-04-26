@@ -27,7 +27,11 @@ export class AppComponent {
         this.toggleCustomer = false;
         this.toggleEmployee = false;
         this.toggleReports = !this.toggleReports;
+        break;
       default:
+        this.toggleCustomer = false;
+        this.toggleEmployee = false;
+        this.toggleReports = false;
         break;
     }
   }
