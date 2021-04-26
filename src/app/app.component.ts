@@ -7,4 +7,10 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'premo-pizza';
+  toggleFlag = false;
+
+  public showDropdown(){
+    this.toggleFlag = !this.toggleFlag;
+  }
+
 }

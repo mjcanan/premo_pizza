@@ -14,11 +14,18 @@
       <li class="nav-item">
         <a routerLink="order" class="nav-link">New Order</a>
       </li>
-      <li>
-        <a routerLink="employee-list" class="nav-link">Employee List</a>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" data-toggle="dropdown" (click)="showDropdown()">Employees</a>
+        <ul class="dropdown-menu" [ngClass]="{'show':toggleFlag}" style="background-color: #363636">
+          <li class="nav-item">
+            <a class="nav-link" routerLink="employee-add"[ngClass]="{'show':toggleFlag}" (click)="showDropdown()">Add Employee</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="employee-list" [ngClass]="{'show':toggleFlag}" (click)="showDropdown()">Employee List</a>
+          </li>
+        </ul>
       </li>
       <li>
-        <a routerLink="employee-add" class="nav-link">Add Employee</a>
       </li>
       <li>
         <a routerLink="product" class="nav-link">Menu</a>
