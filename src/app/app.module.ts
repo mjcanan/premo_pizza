@@ -59,7 +59,8 @@ import { SearchfilterPipe } from './searchfilter.pipe';
     Ng2SearchPipeModule,
     NgxChartsModule,
     BrowserAnimationsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    
   ],
   providers: [DatePipe],
   bootstrap: [AppComponent]

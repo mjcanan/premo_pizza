@@ -1,7 +1,8 @@
 export interface OrderSearch {
+    phonenumber: number
     orderId?: number
     employeeID: number
-    dateTime : Date
+    dateTime : string
     priceCharged: number 
     week:string
 

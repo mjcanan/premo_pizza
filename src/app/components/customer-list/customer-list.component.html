@@ -1,19 +1,26 @@
-<div class="list row">
+
+<h1 style = "text-align: center;color: tomato"> Welcome To Premo Pizza Phone Orders</h1>
+<div class="list row" style=  "margin-top:200px; margin-bottom:300px; margin-right: 250px;
+ margin-left: 350px;">
     <div class="col-md-8">
-      <div class="input-group mb-3">
+      <h5> Place Order</h5>
+       <div class="input-group mb-3">
+        
         <input
           type="text"
           class="form-control"
-          placeholder="Search by Phonenumber"
-          [(ngModel)]="phonenumber"
+          style = "border: 1px solid black;color: black"
+          placeholder="Enter Phonenumber"
+          [(ngModel)]="phonenumber"  
         />
         <div class="input-group-append">
+          
           <button
-            class="btn btn-outline-secondary"
+            class="btn btn-outline-secondary" style = "border: 1px solid tomato;background-color: tomato;color: black"
             type="button"
             (click)="searchPhonenumber()"
           >
-            Search
+            Search Customer 
           </button>
         </div>
       </div>
@@ -22,7 +29,7 @@
     
   <div class="col-md-6">
       <div *ngIf="currentCustomer"> 
-        <h5 style="color:blueviolet">Existing Customer </h5>
+        <h5 style="color:tomato">Existing Customer </h5>
         <div>
           <label><strong>Customer ID:</strong></label> 
           {{ currentCustomer.id}}
@@ -33,9 +40,7 @@
           {{ currentCustomer.phonenumber}}
           
         </div>
-        
-        
-                
+          
         <div>
           <label><strong>name:</strong></label>
           {{ currentCustomer.name }}
