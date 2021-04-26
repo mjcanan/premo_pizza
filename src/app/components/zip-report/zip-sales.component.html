@@ -37,7 +37,7 @@
         <th>Week Number</th>
         
     </tr>
-    <tr *ngFor="let item of orders | filter:searchText |paginate: { itemsPerPage: 8, currentPage: p}">
+    <tr *ngFor="let item of orders | filter:searchText |paginate: { itemsPerPage: 10, currentPage: p}">
         <!--<td>{{item.employeeId}}</td>-->
         <td>{{item.orderId}}</td>
         <td>{{item.zipcode}}</td>

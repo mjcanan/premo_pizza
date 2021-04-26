@@ -13,24 +13,10 @@ export class ZipSalesComponent implements OnInit {
   searchText: string;
   orders: Order[];
   p: number =1;
+  datesSet: boolean = true;
   filterOrder : Order[];
-  ordersPipe : {
-    orderId: number
-    phonenumber : number
-    productIds : number[]
-    dateTime : Date
-    discount: number
-    employeeId : number
-    quantity: number
-    priceCharged: number
-    zipcode:number
-    weeknumber: string
-};
-  ordersPipeArray: [];
-startdate : Date;
-enddate : Date; 
-
-
+ startdate : Date;
+ enddate : Date; 
   datePipeString: string; 
   sumSales = 0;
   sumSales55501 = 0;
@@ -52,42 +38,38 @@ enddate : Date;
   }
  
   totalSales() {
+    this.sumSales =0;
    
-    for(let i = 0; i< this.orders.length; i++){
+    for(let i = 0; i<=this.orders.length; i++){
       
       {this.sumSales += this.orders[i].priceCharged;}
     }
-    return this.sumSales;
+    
+   // return this.sumSales;
   }
 
 totalSalesByZip(){
-   
-  for(let i = 0; i< this.orders.length; i++){
-    if(this.orders[i].zipcode == 55501)
-    {this.sumSales55501 += this.orders[i].priceCharged;
-    console.log(this.sumSales55501)};
-    if(this.orders[i].zipcode == 55502)
-    {this.sumSales55502 += this.orders[i].priceCharged;}
-    if(this.orders[i].zipcode == 55503)
-    {this.sumSales55503 += this.orders[i].priceCharged;}
-    if(this.orders[i].zipcode == 55504)
-    {this.sumSales55504 += this.orders[i].priceCharged;}
-  }
+   if (this.datesSet == true){
+    for(let i = 0; i < this.orders.length; i++){
+      if(this.orders[i].zipcode == 55501)
+      {this.sumSales55501 += this.orders[i].priceCharged;
+      console.log(this.sumSales55501)};
+      if(this.orders[i].zipcode == 55502)
+      {this.sumSales55502 += this.orders[i].priceCharged;}
+      if(this.orders[i].zipcode == 55503)
+      {this.sumSales55503 += this.orders[i].priceCharged;}
+      if(this.orders[i].zipcode == 55504)
+      {this.sumSales55504 += this.orders[i].priceCharged;}
+    }
+   }
+  this.datesSet = false;
 }
  
 transformDate (){
   for(let i  of this.orders){
     this.datePipeString =
      this.datePipe.transform(i.dateTime, 'w');
-    //  this.ordersPipe[i].orderId = this.orders[i].orderId;
-    //  this.ordersPipe[i].phonenumber = this.orders[i].phonenumber;
-    //  this.ordersPipe[i].discount = this.orders[i].discount;
-    //  this.ordersPipe[i].employeeId = this.orders[i].employeeId;
-    //  this.ordersPipe[i].discount = this.orders[i].discount;
-    //  this.ordersPipe[i].priceCharged = this.orders[i].priceCharged;
-    //  this.ordersPipe[i].zipcode = this.orders[i].zipcode;
-    //  this.ordersPipe[i].dateTime = this.orders[i].dateTime;
-    //  this.ordersPipe[i].weeknumber = this.datePipeString;
+    
   i['weeknumber']= this.datePipeString;
     
      }
@@ -95,7 +77,13 @@ transformDate (){
 }
 
 getOrdersAll(){
+  this.sumSales = 0;
+  this.sumSales55501 = 0;
+  this.sumSales55502 = 0;
+  this.sumSales55503 = 0;
+  this.sumSales55504 = 0;
   this.orderService.getOrders().subscribe((data: any)=> {this.orders = data;});
+  this.datesSet = true;
 }
 
 filterByDate() {
@@ -105,7 +93,8 @@ filterByDate() {
     return obj.dateTime > start && obj.dateTime < end;
  
   });
-this.orders = this.filterOrder
+this.orders = this.filterOrder;
+this.datesSet = true;
   }
 }
 
