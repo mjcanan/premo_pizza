@@ -27,7 +27,7 @@ export class ZipSalesComponent implements OnInit {
   
 
     constructor(private orderService: OrderService, private datePipe: DatePipe) {
-      // this.orderService.getOrders().subscribe((data: any)=> {this.orders = data;});
+       //this.orderService.getOrders().subscribe((data: any)=> {this.orders = data;});
      }
 
   ngOnInit(): void {
@@ -61,6 +61,7 @@ totalSalesByZip(){
       if(this.orders[i].zipcode == 55504)
       {this.sumSales55504 += this.orders[i].priceCharged;}
     }
+    this.sumSales = this.sumSales55501 + this.sumSales55502 + this.sumSales55503 + this.sumSales55504;
    }
   this.datesSet = false;
 }
@@ -90,12 +91,17 @@ filterByDate() {
   let start = this.startdate;
   let end = this.enddate;
   this.filterOrder = this.orders.filter(function(obj){
-    return obj.dateTime > start && obj.dateTime < end;
+    console.log("time" + obj.dateTime);
+    console.log("starttime" + start);
+    console.log("ENDtime" + end);
+    return obj.dateTime >= start && obj.dateTime <= end;
  
   });
 this.orders = this.filterOrder;
+console.log(this.orders);
 this.datesSet = true;
   }
+
 }
 
 
