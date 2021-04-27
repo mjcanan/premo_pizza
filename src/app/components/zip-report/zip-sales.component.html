@@ -3,7 +3,7 @@
         <h4 style = "display:inline">Search Sales by Date : </h4>
         <label for="startdate:  ">Start date</label>
         <input type="date" id ="startdate" [(ngModel)]= "startdate" name ="startdate">
-        <label for="startdate:  ">End date</label>
+        <label for="enddate:  ">End date</label>
         <input type="date" id ="enddate" [(ngModel)]= "enddate" name ="enddate">
         <button type = "button" (click)="filterByDate()"> Submit </button>
         <button type="button" (click)="getOrdersAll()">Clear Dates</button>
@@ -56,12 +56,13 @@
         <br/>
     
     <button type = "button" (click)="totalSalesByZip()"> Click for Zip Totals: </button>
+    <br>
 <!-- <p> Total Sales: {{sumSales | currency}}</p> -->
 <p> Total Sales 55501 : {{sumSales55501 | currency}} </p>
 <p> Total Sales 55502 : {{sumSales55502 | currency}}</p>
 <p> Total Sales 55503 : {{sumSales55503 | currency}}</p>
 <p> Total Sales 55504 : {{sumSales55504 | currency}}</p>
-<button type = "button" (click)="totalSales()">Click for Grand Total: </button>
+<!-- <button type = "button" (click)="totalSales()">Click for Grand Total: </button> -->
 <p>Grand total : {{sumSales | currency}}</p>
 
 </div>
