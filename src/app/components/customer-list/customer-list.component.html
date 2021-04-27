@@ -2,9 +2,10 @@
 <h1 style = "text-align: center;color: tomato"> Welcome To Premo Pizza Phone Orders</h1>
 <div class="list row" style=  "margin-top:200px; margin-bottom:300px; margin-right: 250px;
  margin-left: 350px;">
-    <div class="col-md-8">
-      <h5> Place Order</h5>
-       <div class="input-group mb-3">
+    <div class="col-md-18" style="align-self:center;">
+      <h5>Search for Customer by Phonenumber:</h5>
+       
+      <div class="input-group mb-3">
         
         <input
           type="text"
@@ -27,7 +28,7 @@
     </div>
    
     
-  <div class="col-md-6">
+  <div class="col-md-8">
       <div *ngIf="currentCustomer"> 
         <h5 style="color:tomato">Existing Customer </h5>
         <div>
@@ -70,11 +71,11 @@
           <ng-container *ngIf="errorApi>
            <p>API error happened.</p>
           </ng-container> -->
-     <div *ngIf="!currentCustomer">
+     <!-- <div *ngIf="!currentCustomer">
         <br >
         <p>Customer does not exist with this phone number, go to Add Customer!</p>
+      </div> -->
       </div>
-      </div>
-     </div> 
-    
+     </div>
+  
     
