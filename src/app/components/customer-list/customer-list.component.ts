@@ -49,10 +49,14 @@ export class CustomerListComponent implements OnInit {
           console.log(data);
         },
         error => {
-          console.log(error);
+          this.handleError(error);
         });
   }
- 
+  handleError(error: any) {
+    //console.error('An error occurred:', error.message);
+    //console.error(error);
+    alert("There is no customer with this phone number.  Please Add New Customer.");
+}
 }
 
 

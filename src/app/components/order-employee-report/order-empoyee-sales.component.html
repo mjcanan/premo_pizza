@@ -22,7 +22,7 @@
             <th>Employee ID</th>
             <th>Phone Number</th>
             <th>Price Charged</th>
-            <th>Date</th>
+            <!-- <th>Date</th> -->
             <th>Week Number</th>           
         </tr>         
          <tr *ngFor="let order of ordersearch | searchfilter : searchValue">
@@ -30,7 +30,7 @@
             <td>{{order.employeeId}}</td>
             <td>{{order.phonenumber}}</td>
             <td>{{order.priceCharged | currency}}</td>
-            <td>{{order.dateTime | date }} </td>
+            <!-- <td>{{order.dateTime | date }} </td> -->
             <td>{{order.dateTime }}</td>  
           </tr>
 </table>  
