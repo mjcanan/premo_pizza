@@ -21,7 +21,7 @@ export class ChartsComponent implements OnInit {
   year: number = 0;
   ytd: number;
   loaded: boolean = false;
-  employeesLoaded: boolean = false;;
+  employeesLoaded: boolean = false;
 
   constructor(private orderService: OrderService,
               private employeeService: EmployeeService) { }
