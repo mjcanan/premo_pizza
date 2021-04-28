@@ -98,7 +98,7 @@ filterByDate() {
  
   });
 this.orders = this.filterOrder;
-console.log(this.orders);
+console.log(this.orders)
 this.datesSet = true;
   }
 
